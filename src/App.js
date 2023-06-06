@@ -1,12 +1,9 @@
+import React from 'react';
 import 'fontsource-roboto';
-import {BrowserRouter} from "react-router-dom";
-import RouterConfig from "./navigation/routerConfig";
+import RouterConfig from './navigation/routerConfig';
 
 function App() {
-  return (
-  <BrowserRouter>
-    <RouterConfig/>
-  </BrowserRouter>);
+  return <RouterConfig />;
 }
 
 export default App;
