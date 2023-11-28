@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Bootstrapper", "src\Bootstrapper\ParcelLocker.Bootstrapper\ParcelLocker.Bootstrapper.csproj", "{F9B92C76-D44B-4E00-8000-8C965E413AF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootsrapper", "Bootsrapper", "{1297EB6C-E02F-4A84-AFAF-305FD1A05645}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D6E2540-D7E8-43C0-B5DB-A6B3133C590A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{95E9E4BD-15EF-4933-BF4D-D7F2BBF65F0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F1FE2967-B724-4CE1-A74A-ACCC2CC409D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30D99FDD-FCD8-4628-AE2B-E319E5C8C253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Shared.Abstractions", "src\Shared\ParcelLocker.Shared.Abstractions\ParcelLocker.Shared.Abstractions.csproj", "{76A8E155-BDC8-45F8-A396-658396D5665D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Shared.Infrastructure", "src\Shared\ParcelLocker.Shared.Infrastructure\ParcelLocker.Shared.Infrastructure.csproj", "{D9883D68-48B4-471E-9D9F-1EFBAEFEA9BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "History", "History", "{037C9096-C851-4B04-A6CD-5AA6E77EFBBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.History.Api", "src\Modules\History\ParcelLocker.Modules.History.Api\ParcelLocker.Modules.History.Api.csproj", "{F41E31A8-DD11-41A2-89DC-6D95F57430BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.History.Core", "src\Modules\History\ParcelLocker.Modules.History.Core\ParcelLocker.Modules.History.Core.csproj", "{70F62EC9-BD92-40DE-86D3-7788ED11A15A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9B92C76-D44B-4E00-8000-8C965E413AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B92C76-D44B-4E00-8000-8C965E413AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B92C76-D44B-4E00-8000-8C965E413AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B92C76-D44B-4E00-8000-8C965E413AF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A8E155-BDC8-45F8-A396-658396D5665D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A8E155-BDC8-45F8-A396-658396D5665D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A8E155-BDC8-45F8-A396-658396D5665D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A8E155-BDC8-45F8-A396-658396D5665D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9883D68-48B4-471E-9D9F-1EFBAEFEA9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9883D68-48B4-471E-9D9F-1EFBAEFEA9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9883D68-48B4-471E-9D9F-1EFBAEFEA9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9883D68-48B4-471E-9D9F-1EFBAEFEA9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41E31A8-DD11-41A2-89DC-6D95F57430BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41E31A8-DD11-41A2-89DC-6D95F57430BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41E31A8-DD11-41A2-89DC-6D95F57430BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41E31A8-DD11-41A2-89DC-6D95F57430BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F62EC9-BD92-40DE-86D3-7788ED11A15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F62EC9-BD92-40DE-86D3-7788ED11A15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F62EC9-BD92-40DE-86D3-7788ED11A15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F62EC9-BD92-40DE-86D3-7788ED11A15A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1297EB6C-E02F-4A84-AFAF-305FD1A05645} = {2D6E2540-D7E8-43C0-B5DB-A6B3133C590A}
+		{95E9E4BD-15EF-4933-BF4D-D7F2BBF65F0B} = {2D6E2540-D7E8-43C0-B5DB-A6B3133C590A}
+		{F1FE2967-B724-4CE1-A74A-ACCC2CC409D2} = {2D6E2540-D7E8-43C0-B5DB-A6B3133C590A}
+		{F9B92C76-D44B-4E00-8000-8C965E413AF0} = {1297EB6C-E02F-4A84-AFAF-305FD1A05645}
+		{76A8E155-BDC8-45F8-A396-658396D5665D} = {F1FE2967-B724-4CE1-A74A-ACCC2CC409D2}
+		{D9883D68-48B4-471E-9D9F-1EFBAEFEA9BB} = {F1FE2967-B724-4CE1-A74A-ACCC2CC409D2}
+		{037C9096-C851-4B04-A6CD-5AA6E77EFBBF} = {95E9E4BD-15EF-4933-BF4D-D7F2BBF65F0B}
+		{F41E31A8-DD11-41A2-89DC-6D95F57430BE} = {037C9096-C851-4B04-A6CD-5AA6E77EFBBF}
+		{70F62EC9-BD92-40DE-86D3-7788ED11A15A} = {037C9096-C851-4B04-A6CD-5AA6E77EFBBF}
+	EndGlobalSection
+EndGlobal
