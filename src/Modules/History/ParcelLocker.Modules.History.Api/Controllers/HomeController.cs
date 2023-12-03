@@ -2,8 +2,8 @@
 
 namespace ParcelLocker.Modules.History.Api.Controllers;
 
-[Route("history-module")]
-internal class HomeController : ControllerBase
+internal class HomeController : BaseController
 {
+    [HttpGet]
     public async Task<string> Get() => "From history";
 }
