@@ -1,4 +1,4 @@
-﻿namespace ParcelLocker.Shared.Abstractions.Exceptions;
+﻿namespace ParcelLocker.Shared.Abstractions.Exceptions.Types;
 
 public abstract class CoreException : Exception
 {
