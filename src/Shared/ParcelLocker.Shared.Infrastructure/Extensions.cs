@@ -29,7 +29,6 @@ public static class Extensions
     public static WebApplication UseInfrastructure(this WebApplication webApplication)
     {
         webApplication.UseExceptionHandling();
-        webApplication.MapControllers();
 
         if (webApplication.Environment.IsDevelopment())
         {
