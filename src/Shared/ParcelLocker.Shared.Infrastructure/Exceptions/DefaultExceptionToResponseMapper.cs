@@ -18,7 +18,7 @@ public class DefaultExceptionToResponseMapper : IExceptionToResponseMapper
     }
     
     private record Error(string StatusCode, string Description);
-        
+    
     private static string GetErrorCode(object exception)
     {
         var type = exception.GetType();

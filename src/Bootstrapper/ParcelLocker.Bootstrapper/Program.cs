@@ -1,12 +1,19 @@
 using Bootstrapper;
 using ParcelLocker.Shared.Infrastructure;
+using ParcelLocker.Shared.Infrastructure.Modules;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddInfrastructure();
+var configurationBuilder = new ConfigurationBuilder();
+configurationBuilder.RegisterModuleSettings(builder.Environment.EnvironmentName);
+var configuration = configurationBuilder.Build();
 
-var assemblies = ModuleLoader.GetAssemblies();
+builder.Services.AddSingleton<IConfiguration>(configuration);
+
+var assemblies = ModuleLoader.GetModuleAssemblies(configuration);
 var modules = ModuleLoader.GetModules(assemblies);
+
+builder.Services.AddInfrastructure();
 
 foreach (var module in modules)
 {

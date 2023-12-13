@@ -5,18 +5,25 @@ namespace Bootstrapper;
 
 public static class ModuleLoader
 {
-    public static IEnumerable<Assembly> GetAssemblies()
+    public static IEnumerable<Assembly> GetModuleAssemblies(IConfigurationRoot configuration)
     {
-        var assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
-        var locations = assemblies.Where(x => !x.IsDynamic).Select(x => x.Location).ToList();
+        var moduleFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "ParcelLocker.Modules.*.*.dll");
+        var moduleAssemblies = moduleFiles.Select(x => AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(x)));
 
-        var files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll")
-            .Where(x => !locations.Contains(x, StringComparer.CurrentCultureIgnoreCase))
-            .ToList();
+        var enabledModules = new List<Assembly>();
+
+        foreach (var module in moduleAssemblies)
+        {
+            var moduleName = module.FullName!.Split(".")[2];
+            var moduleEnabled = configuration.GetSection($"{moduleName}:module:enabled").Get<bool>();
+
+            if (moduleEnabled)
+            {
+                enabledModules.Add(module);
+            }
+        }
         
-        files.ForEach(x => assemblies.Add(AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(x))));
-        
-        return assemblies;
+        return enabledModules;
     }
 
     public static List<IModule> GetModules(IEnumerable<Assembly> assemblies)

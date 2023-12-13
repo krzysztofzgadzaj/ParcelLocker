@@ -15,4 +15,15 @@
             <_Parameter1>ParcelLocker.Bootstrapper</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="appsettings.history.json" />
+      <Content Include="appsettings.history.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="appsettings.history.development.json" />
+      <Content Include="appsettings.history.development.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
 </Project>
