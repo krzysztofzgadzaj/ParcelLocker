@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Modules\History\ParcelLocker.Modules.History.Api\ParcelLocker.Modules.History.Api.csproj" />
+      <ProjectReference Include="..\..\Modules\Storage\ParcelLocker.Modules.Storage.Api\ParcelLocker.Modules.Storage.Api.csproj" />
       <ProjectReference Include="..\..\Shared\ParcelLocker.Shared.Infrastructure\ParcelLocker.Shared.Infrastructure.csproj" />
     </ItemGroup>
 
