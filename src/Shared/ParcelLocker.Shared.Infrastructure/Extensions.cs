@@ -1,17 +1,22 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ParcelLocker.Shared.Infrastructure.Api;
+using ParcelLocker.Shared.Infrastructure.Events;
 using ParcelLocker.Shared.Infrastructure.Exceptions;
 
 namespace ParcelLocker.Shared.Infrastructure;
 
 public static class Extensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection, IEnumerable<Assembly> assemblies)
     {
+        serviceCollection.AddExceptionHandling();
+        serviceCollection.AddEvents(assemblies);
+        
         var disabledModules = new List<string>();
         using (var serviceProvider = serviceCollection.BuildServiceProvider())
         {
@@ -58,8 +63,6 @@ public static class Extensions
         // TODO - Verify if this extension is needed.
         serviceCollection.AddEndpointsApiExplorer();
         serviceCollection.AddSwaggerGen();
-
-        serviceCollection.AddExceptionHandling();
 
         return serviceCollection;
     }

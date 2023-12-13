@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Shared\ParcelLocker.Shared.Infrastructure\ParcelLocker.Shared.Infrastructure.csproj" />
+      <ProjectReference Include="..\ParcelLocker.Modules.Storage.Contract\ParcelLocker.Modules.Storage.Contract.csproj" />
     </ItemGroup>
 
     <ItemGroup>
