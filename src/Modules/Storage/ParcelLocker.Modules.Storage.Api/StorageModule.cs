@@ -5,7 +5,7 @@ using ParcelLocker.Shared.Abstractions.Modules;
 
 namespace ParcelLocker.Modules.Storage.Api;
 
-public class StorageModule : IModule
+internal class StorageModule : IModule
 {
     public const string StorageModuleUrlPrefix = "storage-module";
     

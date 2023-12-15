@@ -5,7 +5,7 @@ using ParcelLocker.Modules.History.Core.Repositories;
 
 namespace ParcelLocker.Modules.History.Core.Services;
 
-public class HistoryService(IHistoryRepository historyRepository) : IHistoryService
+internal class HistoryService(IHistoryRepository historyRepository) : IHistoryService
 {
     public async Task<HistoryLogDto> GetLogByIdAsync(int id)
     {

@@ -1,6 +1,6 @@
 ﻿namespace ParcelLocker.Modules.History.Core.Entities;
 
-public class HistoryLog
+internal class HistoryLog
 {
     public HistoryLog()
     {

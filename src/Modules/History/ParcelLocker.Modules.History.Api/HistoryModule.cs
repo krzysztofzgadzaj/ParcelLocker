@@ -5,7 +5,7 @@ using ParcelLocker.Shared.Abstractions.Modules;
 
 namespace ParcelLocker.Modules.History.Api;
 
-public class HistoryModule : IModule
+internal class HistoryModule : IModule
 {
     public const string HistoryModuleUrlPrefix = "history-module";
     

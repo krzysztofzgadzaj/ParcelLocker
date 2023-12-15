@@ -1,6 +1,6 @@
 ﻿namespace ParcelLocker.Modules.History.Core.DTO;
 
-public class HistoryLogDto
+internal class HistoryLogDto
 {
     public HistoryLogDto()
     {

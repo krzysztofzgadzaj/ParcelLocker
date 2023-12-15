@@ -3,7 +3,7 @@ using ParcelLocker.Modules.History.Core.Entities;
 
 namespace ParcelLocker.Modules.History.Core.Repositories;
 
-public class HistoryRepository : IHistoryRepository
+internal class HistoryRepository : IHistoryRepository
 {
     private static readonly ConcurrentBag<HistoryLog> HistoryLogs = new();
     

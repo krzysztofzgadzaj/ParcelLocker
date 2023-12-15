@@ -2,7 +2,7 @@
 
 namespace ParcelLocker.Modules.History.Core.Services;
 
-public interface IHistoryService
+internal interface IHistoryService
 {
     Task<HistoryLogDto> GetLogByIdAsync(int id);
     Task CrateHistoryLogAsync(HistoryLogDto historyLogDto);

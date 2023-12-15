@@ -5,7 +5,7 @@ using ParcelLocker.Shared.Abstractions.Events;
 
 namespace ParcelLocker.Modules.History.Core.Events.Handlers;
 
-public class StorageCreatedEventHandler : IEventHandler<StorageCreated>
+internal class StorageCreatedEventHandler : IEventHandler<StorageCreated>
 {
     private readonly IHistoryRepository _historyRepository;
 

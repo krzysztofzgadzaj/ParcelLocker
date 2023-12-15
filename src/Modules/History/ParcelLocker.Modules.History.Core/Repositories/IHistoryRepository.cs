@@ -2,7 +2,7 @@
 
 namespace ParcelLocker.Modules.History.Core.Repositories;
 
-public interface IHistoryRepository
+internal interface IHistoryRepository
 {
     Task AddHistoryLogAsync(HistoryLog historyLog);
     Task<HistoryLog> GetHistoryLogByIdAsync(int id);

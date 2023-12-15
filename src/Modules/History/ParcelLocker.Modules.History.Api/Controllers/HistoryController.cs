@@ -5,7 +5,7 @@ using ParcelLocker.Modules.History.Core.Services;
 namespace ParcelLocker.Modules.History.Api.Controllers;
 
 //TODO: Temporary controller, used to go along with the course. Probably will be replaced with event handler.
-public class HistoryController(IHistoryService historyService) : BaseController
+internal class HistoryController(IHistoryService historyService) : BaseController
 {
     [HttpGet]
     public async Task<IActionResult> GetHistoryLogByIdAsync(int id)
