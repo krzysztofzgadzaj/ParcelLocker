@@ -1,9 +1,8 @@
 ﻿using ParcelLocker.Modules.History.Core.Entities;
 using ParcelLocker.Modules.History.Core.Repositories;
-using ParcelLocker.Modules.Storage.Contract.Events;
 using ParcelLocker.Shared.Abstractions.Events;
 
-namespace ParcelLocker.Modules.History.Core.Events.Handlers;
+namespace ParcelLocker.Modules.History.Core.Events.External.Handlers;
 
 internal class StorageCreatedEventHandler : IEventHandler<StorageCreated>
 {
@@ -16,7 +15,7 @@ internal class StorageCreatedEventHandler : IEventHandler<StorageCreated>
 
     public async Task HandleAsync(StorageCreated @event)
     {
-        var historyLog = new HistoryLog(999, $"StorageId: {@event.Id}, name: {@event.Name}, load: {@event.Load}");
+        var historyLog = new HistoryLog(@event.Id, $"StorageId: {@event.Id}, name: {@event.Name}, load: {@event.Load}");
         await _historyRepository.AddHistoryLogAsync(historyLog);
     }
 }

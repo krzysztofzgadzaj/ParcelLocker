@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using ParcelLocker.Shared.Infrastructure.Api;
 using ParcelLocker.Shared.Infrastructure.Events;
 using ParcelLocker.Shared.Infrastructure.Exceptions;
+using ParcelLocker.Shared.Infrastructure.Modules;
+using ParcelLocker.Shared.Infrastructure.TextSerializer;
 
 namespace ParcelLocker.Shared.Infrastructure;
 
@@ -16,6 +18,8 @@ public static class Extensions
     {
         serviceCollection.AddExceptionHandling();
         serviceCollection.AddEvents(assemblies);
+        serviceCollection.AddModuleRegistry(assemblies);
+        serviceCollection.AddTextSerializer();
         
         var disabledModules = new List<string>();
         using (var serviceProvider = serviceCollection.BuildServiceProvider())
