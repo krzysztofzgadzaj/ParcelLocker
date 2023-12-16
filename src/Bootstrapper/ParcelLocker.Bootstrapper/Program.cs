@@ -13,7 +13,7 @@ builder.Services.AddSingleton<IConfiguration>(configuration);
 var assemblies = ModuleLoader.GetModuleAssemblies(configuration);
 var modules = ModuleLoader.GetModules(assemblies);
 
-builder.Services.AddInfrastructure(assemblies);
+builder.Services.AddInfrastructure(assemblies, configuration);
 
 foreach (var module in modules)
 {

@@ -1,6 +1,4 @@
-﻿using ParcelLocker.Shared.Abstractions.Events;
-
-namespace ParcelLocker.Shared.Infrastructure.Events;
+﻿namespace ParcelLocker.Shared.Abstractions.Events;
 
 public interface IEventDispatcher
 {

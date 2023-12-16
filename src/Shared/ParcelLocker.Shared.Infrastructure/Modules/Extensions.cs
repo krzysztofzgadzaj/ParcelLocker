@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using ParcelLocker.Shared.Abstractions.Events;
-using ParcelLocker.Shared.Infrastructure.Events;
 
 namespace ParcelLocker.Shared.Infrastructure.Modules;
 

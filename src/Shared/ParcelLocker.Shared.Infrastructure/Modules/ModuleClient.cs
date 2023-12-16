@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using ParcelLocker.Shared.Abstractions.Events;
-using ParcelLocker.Shared.Infrastructure.TextSerializer;
+﻿using ParcelLocker.Shared.Infrastructure.TextSerializer;
 
 namespace ParcelLocker.Shared.Infrastructure.Modules;
 
@@ -15,19 +13,19 @@ public class ModuleClient : IModuleClient
         _textSerializer = textSerializer;
     }
 
-    public async Task PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEvent
+    public async Task PublishAsync(object message)
     {
         var registryEntries = _moduleRegistry
-            .GetByKey(@event.GetType().Name)
-            .Where(r => r.ToType != @event.GetType());;
+            .GetByKey(message.GetType().Name)
+            .Where(r => r.ToType != message.GetType());;
 
         foreach (var registryEntry in registryEntries)
         {
-            var mappedObject = MapEvent(@event, registryEntry.ToType);
+            var mappedObject = MapEvent(message, registryEntry.ToType);
             await registryEntry.Action(mappedObject);
         }
     }
     
-    private object MapEvent(IEvent @event, Type targetType)
-        => _textSerializer.Deserialize(_textSerializer.Serialize(@event), targetType);
+    private object MapEvent(object message, Type targetType)
+        => _textSerializer.Deserialize(_textSerializer.Serialize(message), targetType);
 }

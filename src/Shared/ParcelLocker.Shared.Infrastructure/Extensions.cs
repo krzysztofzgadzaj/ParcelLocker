@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using ParcelLocker.Shared.Infrastructure.Api;
 using ParcelLocker.Shared.Infrastructure.Events;
 using ParcelLocker.Shared.Infrastructure.Exceptions;
+using ParcelLocker.Shared.Infrastructure.Messaging;
 using ParcelLocker.Shared.Infrastructure.Modules;
 using ParcelLocker.Shared.Infrastructure.TextSerializer;
 
@@ -14,18 +15,19 @@ namespace ParcelLocker.Shared.Infrastructure;
 
 public static class Extensions
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection, IEnumerable<Assembly> assemblies)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection, IEnumerable<Assembly> assemblies, IConfiguration configuration)
     {
         serviceCollection.AddExceptionHandling();
         serviceCollection.AddEvents(assemblies);
         serviceCollection.AddModuleRegistry(assemblies);
         serviceCollection.AddTextSerializer();
+        serviceCollection.AddMessageBroker(configuration);
         
         var disabledModules = new List<string>();
         using (var serviceProvider = serviceCollection.BuildServiceProvider())
         {
-            var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-            foreach (var (key, value) in configuration.AsEnumerable())
+            var appConfiguration = serviceProvider.GetRequiredService<IConfiguration>();
+            foreach (var (key, value) in appConfiguration.AsEnumerable())
             {
                 if (!key.Contains(":module:enabled"))
                 {

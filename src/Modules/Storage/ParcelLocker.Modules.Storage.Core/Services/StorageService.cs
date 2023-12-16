@@ -1,19 +1,19 @@
 ﻿using ParcelLocker.Modules.Storage.Core.Events;
 using ParcelLocker.Modules.Storage.Core.Exceptions;
 using ParcelLocker.Modules.Storage.Core.Repositories;
-using ParcelLocker.Shared.Infrastructure.Modules;
+using ParcelLocker.Shared.Abstractions.Messaging;
 
 namespace ParcelLocker.Modules.Storage.Core.Services;
 
 internal class StorageService : IStorageService
 {
     private readonly IStorageRepository _storageRepository;
-    private readonly IModuleClient _moduleClient;
+    private readonly IMessageBroker _messageBroker;
 
-    public StorageService(IStorageRepository storageRepository, IModuleClient moduleClient)
+    public StorageService(IStorageRepository storageRepository, IMessageBroker messageBroker)
     {
         _storageRepository = storageRepository;
-        _moduleClient = moduleClient;
+        _messageBroker = messageBroker;
     }
 
     public async Task<Entities.Storage> GetByIdAsync(int id)
@@ -31,6 +31,6 @@ internal class StorageService : IStorageService
     public async Task CreateAsync(Entities.Storage storage)
     {
         await _storageRepository.CreateAsync(storage);
-        await _moduleClient.PublishAsync(new StorageCreated(storage.Id, storage.Name, storage.Load));
+        await _messageBroker.PublishAsync(new StorageCreated(storage.Id, storage.Name, storage.Load));
     }
 }
