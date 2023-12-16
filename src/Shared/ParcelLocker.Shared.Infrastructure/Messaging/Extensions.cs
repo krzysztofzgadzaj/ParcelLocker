@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ParcelLocker.Shared.Abstractions.Messaging;
+using ParcelLocker.Shared.Infrastructure.Messaging.Dispatchers;
 
 namespace ParcelLocker.Shared.Infrastructure.Messaging;
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using ParcelLocker.Shared.Infrastructure.Modules;
+using ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
-namespace ParcelLocker.Shared.Infrastructure.Messaging;
+namespace ParcelLocker.Shared.Infrastructure.Messaging.Dispatchers;
 
 public class AsyncMessageJob : BackgroundService
 {

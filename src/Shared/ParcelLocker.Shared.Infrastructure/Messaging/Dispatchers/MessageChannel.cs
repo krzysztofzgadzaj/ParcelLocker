@@ -1,7 +1,7 @@
 ﻿using System.Threading.Channels;
 using ParcelLocker.Shared.Abstractions.Messaging;
 
-namespace ParcelLocker.Shared.Infrastructure.Messaging;
+namespace ParcelLocker.Shared.Infrastructure.Messaging.Dispatchers;
 
 internal class MessageChannel : IMessageChannel
 {

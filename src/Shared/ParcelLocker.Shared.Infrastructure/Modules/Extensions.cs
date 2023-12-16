@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using ParcelLocker.Shared.Abstractions.Events;
+using ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
 namespace ParcelLocker.Shared.Infrastructure.Modules;
 
@@ -15,7 +16,7 @@ internal static class Extensions
                 .SelectMany(x => x.GetTypes())
                 .Where(x => typeof(IEvent).IsAssignableFrom(x));
 
-            var registry = new ModuleRegistry();
+            var registry = new ModuleRegistry.ModuleRegistry();
 
             foreach (var eventType in eventTypes)
             {

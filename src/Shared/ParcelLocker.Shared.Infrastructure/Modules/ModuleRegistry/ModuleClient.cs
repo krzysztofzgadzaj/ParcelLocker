@@ -1,7 +1,6 @@
 ﻿using ParcelLocker.Shared.Abstractions.TextSerializer;
-using ParcelLocker.Shared.Infrastructure.TextSerializer;
 
-namespace ParcelLocker.Shared.Infrastructure.Modules;
+namespace ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
 public class ModuleClient : IModuleClient
 {

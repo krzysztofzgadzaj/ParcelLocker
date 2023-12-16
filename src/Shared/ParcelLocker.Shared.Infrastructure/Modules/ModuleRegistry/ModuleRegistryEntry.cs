@@ -1,4 +1,4 @@
-﻿namespace ParcelLocker.Shared.Infrastructure.Modules;
+﻿namespace ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
 public class ModuleRegistryEntry
 {
