@@ -4,7 +4,7 @@ using ParcelLocker.Shared.Abstractions.Exceptions;
 
 namespace ParcelLocker.Shared.Infrastructure.Exceptions;
 
-public static class Extensions
+internal static class Extensions
 {
     public static IServiceCollection AddExceptionHandling(this IServiceCollection serviceCollection)
         => serviceCollection

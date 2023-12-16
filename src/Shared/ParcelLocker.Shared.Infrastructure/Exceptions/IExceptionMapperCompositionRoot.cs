@@ -2,7 +2,7 @@
 
 namespace ParcelLocker.Shared.Infrastructure.Exceptions;
 
-public interface IExceptionMapperCompositionRoot
+internal interface IExceptionMapperCompositionRoot
 {
     ErrorResponse GetExceptionResponse(Exception exception);
 }

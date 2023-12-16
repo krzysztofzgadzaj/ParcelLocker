@@ -3,7 +3,7 @@ using ParcelLocker.Shared.Abstractions.Exceptions;
 
 namespace ParcelLocker.Shared.Infrastructure.Exceptions;
 
-public class ExceptionMapperCompositionRoot : IExceptionMapperCompositionRoot
+internal class ExceptionMapperCompositionRoot : IExceptionMapperCompositionRoot
 {
     private readonly IServiceProvider _serviceProvider;
 

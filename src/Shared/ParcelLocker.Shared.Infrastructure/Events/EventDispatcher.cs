@@ -3,7 +3,7 @@ using ParcelLocker.Shared.Abstractions.Events;
 
 namespace ParcelLocker.Shared.Infrastructure.Events;
 
-public class EventDispatcher : IEventDispatcher
+internal class EventDispatcher : IEventDispatcher
 {
     private readonly IServiceProvider _serviceProvider;
 

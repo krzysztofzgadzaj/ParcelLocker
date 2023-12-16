@@ -4,7 +4,7 @@ using ParcelLocker.Shared.Abstractions.Events;
 
 namespace ParcelLocker.Shared.Infrastructure.Modules;
 
-public static class Extensions
+internal static class Extensions
 {
     public static IServiceCollection AddModuleRegistry(this IServiceCollection serviceCollection, IEnumerable<Assembly> assemblies)
     {

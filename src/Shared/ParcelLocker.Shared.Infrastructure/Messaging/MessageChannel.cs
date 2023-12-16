@@ -3,7 +3,7 @@ using ParcelLocker.Shared.Abstractions.Messaging;
 
 namespace ParcelLocker.Shared.Infrastructure.Messaging;
 
-public class MessageChannel : IMessageChannel
+internal class MessageChannel : IMessageChannel
 {
     private readonly Channel<IMessage> _messages = Channel.CreateUnbounded<IMessage>();
 

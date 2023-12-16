@@ -1,4 +1,4 @@
-﻿namespace ParcelLocker.Shared.Infrastructure.TextSerializer;
+﻿namespace ParcelLocker.Shared.Abstractions.TextSerializer;
 
 public interface ITextSerializer
 {

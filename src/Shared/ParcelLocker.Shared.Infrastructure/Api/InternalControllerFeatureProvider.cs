@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace ParcelLocker.Shared.Infrastructure.Api;
 
-public class InternalControllerFeatureProvider : ControllerFeatureProvider
+internal class InternalControllerFeatureProvider : ControllerFeatureProvider
 {
     protected override bool IsController(TypeInfo typeInfo)
     {

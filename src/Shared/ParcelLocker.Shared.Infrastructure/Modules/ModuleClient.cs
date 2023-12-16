@@ -1,4 +1,5 @@
-﻿using ParcelLocker.Shared.Infrastructure.TextSerializer;
+﻿using ParcelLocker.Shared.Abstractions.TextSerializer;
+using ParcelLocker.Shared.Infrastructure.TextSerializer;
 
 namespace ParcelLocker.Shared.Infrastructure.Modules;
 

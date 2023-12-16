@@ -5,7 +5,7 @@ using ParcelLocker.Shared.Abstractions.Exceptions.Types;
 
 namespace ParcelLocker.Shared.Infrastructure.Exceptions;
 
-public class DefaultExceptionToResponseMapper : IExceptionToResponseMapper
+internal class DefaultExceptionToResponseMapper : IExceptionToResponseMapper
 {
     public ErrorResponse Map(Exception exception)
     {

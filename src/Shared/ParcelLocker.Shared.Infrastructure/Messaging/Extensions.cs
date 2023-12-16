@@ -4,7 +4,7 @@ using ParcelLocker.Shared.Abstractions.Messaging;
 
 namespace ParcelLocker.Shared.Infrastructure.Messaging;
 
-public static class Extensions
+internal static class Extensions
 {
     private const string MessageSectionName = "Messaging";
     

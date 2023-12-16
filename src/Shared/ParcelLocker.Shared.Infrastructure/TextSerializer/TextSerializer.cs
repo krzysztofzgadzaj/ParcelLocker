@@ -1,9 +1,10 @@
 ﻿using System.Text;
 using System.Text.Json;
+using ParcelLocker.Shared.Abstractions.TextSerializer;
 
 namespace ParcelLocker.Shared.Infrastructure.TextSerializer;
 
-public class TextSerializer : ITextSerializer
+internal class TextSerializer : ITextSerializer
 {
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {

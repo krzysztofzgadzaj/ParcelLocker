@@ -2,7 +2,7 @@
 
 namespace ParcelLocker.Shared.Infrastructure.Exceptions;
 
-public class ExceptionHandlerMiddleware : IMiddleware
+internal class ExceptionHandlerMiddleware : IMiddleware
 {
     private readonly IExceptionMapperCompositionRoot _exceptionMapperCompositionRoot;
 
