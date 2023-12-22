@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ParcelLocker.Shared.Infrastructure.Api;
+using ParcelLocker.Shared.Infrastructure.Commands;
 using ParcelLocker.Shared.Infrastructure.Events;
 using ParcelLocker.Shared.Infrastructure.Exceptions;
 using ParcelLocker.Shared.Infrastructure.Messaging;
@@ -23,6 +24,7 @@ public static class Extensions
         serviceCollection.AddModuleRegistry(assemblies);
         serviceCollection.AddTextSerializer();
         serviceCollection.AddQueries(assemblies);
+        serviceCollection.AddCommands(assemblies);
         serviceCollection.AddMessageBroker(configuration);
         
         var disabledModules = new List<string>();
