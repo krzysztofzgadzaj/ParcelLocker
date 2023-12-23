@@ -2,4 +2,4 @@
 
 namespace ParcelLocker.Modules.History.Core.Events.External;
 
-internal record StorageCreated(int Id, string Name, int Load) : IEvent;
+internal record StorageCreated(Guid Id, string Name, int Load) : IEvent;

@@ -13,7 +13,7 @@ internal class StorageController : BaseController
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult> GetStorageByIdAsync([FromRoute] int id)
+    public async Task<ActionResult> GetStorageByIdAsync([FromRoute] Guid id)
     {
         var storage = await _storageService.GetByIdAsync(id);
 
@@ -26,5 +26,13 @@ internal class StorageController : BaseController
         await _storageService.CreateAsync(storage);
 
         return Created();
+    }
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult> UpateStorageAsync([FromRoute] Guid id)
+    {
+        await _storageService.UpdateAsync(id);
+
+        return NoContent();
     }
 }

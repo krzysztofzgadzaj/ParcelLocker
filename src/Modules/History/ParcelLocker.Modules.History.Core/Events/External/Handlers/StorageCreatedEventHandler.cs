@@ -15,7 +15,7 @@ internal class StorageCreatedEventHandler : IEventHandler<StorageCreated>
 
     public async Task HandleAsync(StorageCreated @event)
     {
-        var historyLog = new HistoryLog(@event.Id, $"StorageId: {@event.Id}, name: {@event.Name}, load: {@event.Load}");
+        var historyLog = new HistoryLog(Random.Shared.Next(), $"StorageId: {@event.Id}, name: {@event.Name}, load: {@event.Load}");
         await _historyRepository.AddHistoryLogAsync(historyLog);
     }
 }

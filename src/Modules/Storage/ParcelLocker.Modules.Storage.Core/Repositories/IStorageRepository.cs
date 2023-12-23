@@ -2,6 +2,7 @@
 
 internal interface IStorageRepository
 {
-    Task<Entities.Storage> GetByIdAsync(int id);
+    Task<Entities.Storage> GetByIdAsync(Guid id);
     Task CreateAsync(Entities.Storage storage);
+    Task UpdateAsync(Guid id, Entities.Storage storage);
 }

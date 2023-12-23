@@ -8,6 +8,7 @@ using ParcelLocker.Shared.Infrastructure.Api;
 using ParcelLocker.Shared.Infrastructure.Commands;
 using ParcelLocker.Shared.Infrastructure.Events;
 using ParcelLocker.Shared.Infrastructure.Exceptions;
+using ParcelLocker.Shared.Infrastructure.Kernel;
 using ParcelLocker.Shared.Infrastructure.Messaging;
 using ParcelLocker.Shared.Infrastructure.Modules;
 using ParcelLocker.Shared.Infrastructure.Queries;
@@ -25,6 +26,7 @@ public static class Extensions
         serviceCollection.AddTextSerializer();
         serviceCollection.AddQueries(assemblies);
         serviceCollection.AddCommands(assemblies);
+        serviceCollection.AddDomainEvents(assemblies);
         serviceCollection.AddMessageBroker(configuration);
         
         var disabledModules = new List<string>();
