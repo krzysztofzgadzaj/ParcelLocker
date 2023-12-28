@@ -4,11 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>ParcelLocker.Modules.Logistics.Infrastructure</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Shared\ParcelLocker.Shared.Infrastructure\ParcelLocker.Shared.Infrastructure.csproj" />
-      <ProjectReference Include="..\ParcelLocker.Modules.Delivery.Application\ParcelLocker.Modules.Delivery.Application.csproj" />
+      <ProjectReference Include="..\ParcelLocker.Modules.Logistics.Application\ParcelLocker.Modules.Logistics.Application.csproj" />
     </ItemGroup>
 
 </Project>

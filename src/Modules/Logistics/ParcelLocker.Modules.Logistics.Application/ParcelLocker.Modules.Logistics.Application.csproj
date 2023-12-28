@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ParcelLocker.Modules.Delivery.Domain\ParcelLocker.Modules.Delivery.Domain.csproj" />
+      <ProjectReference Include="..\ParcelLocker.Modules.Logistics.Domain\ParcelLocker.Modules.Logistics.Domain.csproj" />
     </ItemGroup>
 
 </Project>

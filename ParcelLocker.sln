@@ -31,15 +31,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Storag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Storage.Core", "src\Modules\Storage\ParcelLocker.Modules.Storage.Core\ParcelLocker.Modules.Storage.Core.csproj", "{7E7BB581-B911-4425-81AA-166C8E95D2CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Delivery", "Delivery", "{CFD50D5B-A913-46E7-8B5D-C20B27996265}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logistics", "Logistics", "{CFD50D5B-A913-46E7-8B5D-C20B27996265}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Delivery.Api", "src\Modules\Delivery\ParcelLocker.Modules.Delivery.Api\ParcelLocker.Modules.Delivery.Api.csproj", "{6396EC98-1ADD-42B7-BD26-6BAA4DC947B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Logistics.Api", "src\Modules\Logistics\ParcelLocker.Modules.Logistics.Api\ParcelLocker.Modules.Logistics.Api.csproj", "{6396EC98-1ADD-42B7-BD26-6BAA4DC947B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Delivery.Infrastructure", "src\Modules\Delivery\ParcelLocker.Modules.Delivery.Infrastructure\ParcelLocker.Modules.Delivery.Infrastructure.csproj", "{573F543D-B5CE-44F4-A125-9A114B192ED2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Logistics.Infrastructure", "src\Modules\Logistics\ParcelLocker.Modules.Logistics.Infrastructure\ParcelLocker.Modules.Logistics.Infrastructure.csproj", "{573F543D-B5CE-44F4-A125-9A114B192ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Delivery.Application", "src\Modules\Delivery\ParcelLocker.Modules.Delivery.Application\ParcelLocker.Modules.Delivery.Application.csproj", "{52864C02-7039-4BD2-9A98-162F328C223C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Logistics.Application", "src\Modules\Logistics\ParcelLocker.Modules.Logistics.Application\ParcelLocker.Modules.Logistics.Application.csproj", "{52864C02-7039-4BD2-9A98-162F328C223C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Delivery.Domain", "src\Modules\Delivery\ParcelLocker.Modules.Delivery.Domain\ParcelLocker.Modules.Delivery.Domain.csproj", "{8F2E164B-089F-477A-81DC-FEF1FD9A1DF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcelLocker.Modules.Logistics.Domain", "src\Modules\Logistics\ParcelLocker.Modules.Logistics.Domain\ParcelLocker.Modules.Logistics.Domain.csproj", "{8F2E164B-089F-477A-81DC-FEF1FD9A1DF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

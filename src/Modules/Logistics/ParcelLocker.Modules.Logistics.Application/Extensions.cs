@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace ParcelLocker.Modules.Delivery.Application;
+namespace ParcelLocker.Modules.Logistics.Application;
 
 public static class Extensions
 {
