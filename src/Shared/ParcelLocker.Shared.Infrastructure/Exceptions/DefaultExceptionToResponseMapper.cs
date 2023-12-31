@@ -12,6 +12,7 @@ internal class DefaultExceptionToResponseMapper : IExceptionToResponseMapper
         return exception switch
         {
             NotFoundException notFoundException => new ErrorResponse(HttpStatusCode.NotFound, new Error(GetErrorCode(exception), notFoundException.Message)),
+            DomainException domainException => new ErrorResponse(HttpStatusCode.UnprocessableEntity, new Error(GetErrorCode(exception), domainException.Message)),
             CoreException coreException => new ErrorResponse(HttpStatusCode.BadRequest, new Error(GetErrorCode(exception), coreException.Message)),
             _ => new ErrorResponse(HttpStatusCode.InternalServerError, new Error(GetErrorCode(exception), "Internal error"))
         };

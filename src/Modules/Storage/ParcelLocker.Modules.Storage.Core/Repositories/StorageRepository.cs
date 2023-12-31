@@ -1,6 +1,4 @@
-﻿using System.Collections.Concurrent;
-
-namespace ParcelLocker.Modules.Storage.Core.Repositories;
+﻿namespace ParcelLocker.Modules.Storage.Core.Repositories;
 
 internal class StorageRepository : IStorageRepository
 {

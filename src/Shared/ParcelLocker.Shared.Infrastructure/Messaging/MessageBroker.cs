@@ -1,6 +1,5 @@
 ﻿using ParcelLocker.Shared.Abstractions.Messaging;
 using ParcelLocker.Shared.Infrastructure.Messaging.Dispatchers;
-using ParcelLocker.Shared.Infrastructure.Modules;
 using ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
 namespace ParcelLocker.Shared.Infrastructure.Messaging;
