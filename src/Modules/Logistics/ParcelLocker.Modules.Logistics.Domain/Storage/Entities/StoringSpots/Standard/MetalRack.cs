@@ -5,18 +5,20 @@ namespace ParcelLocker.Modules.Logistics.Domain.Storage.Entities.StoringSpots.St
 
 public class MetalRack : StandardStoringSpot
 {
+    protected List<StandardShipment> Shipments { get; set; }
     public override StoringSpotType StoringSpotType => StoringSpotType.Standard;
-    public override bool HasPlaceForShipment(Shipment shipment)
+    
+    public override bool HasPlaceForShipment(StandardShipment shipment)
     {
         throw new NotImplementedException();
     }
 
-    public override void AddShipment(Shipment shipment)
+    public override void AddShipment(StandardShipment shipment)
     {
         throw new NotImplementedException();
     }
 
-    public override void AddShipments(IEnumerable<Shipment> shipments)
+    public override void AddShipments(IEnumerable<StandardShipment> shipments)
     {
         throw new NotImplementedException();
     }

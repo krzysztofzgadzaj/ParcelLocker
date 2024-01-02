@@ -8,12 +8,12 @@ public class Fridge : FreshShipmentStoringSpot
 {
     public override StoringSpotType StoringSpotType => StoringSpotType.Fresh;
 
-    public override bool HasPlaceForShipment(Shipment shipment)
+    public override bool HasPlaceForShipment(FreshShipment shipment)
     {
         return GetSpaceLeft() - shipment.Volume > 0;
     }
 
-    public override void AddShipment(Shipment shipment)
+    public override void AddShipment(FreshShipment shipment)
     {
         if (!HasPlaceForShipment(shipment))
         {
@@ -24,7 +24,7 @@ public class Fridge : FreshShipmentStoringSpot
         Shipments.Add(shipment);
     }
 
-    public override void AddShipments(IEnumerable<Shipment> shipments)
+    public override void AddShipments(IEnumerable<FreshShipment> shipments)
     {
         foreach (var package in shipments)
         {

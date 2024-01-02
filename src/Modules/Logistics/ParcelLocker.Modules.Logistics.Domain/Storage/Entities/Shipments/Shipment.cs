@@ -10,4 +10,5 @@ public abstract class Shipment : AggregateRoot
     public double Width { get; set; }
     public double Length { get; set; }
     public double Volume => Width * Height * Length;
+    public double Weight { get; set; }
 }

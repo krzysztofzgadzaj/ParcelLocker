@@ -2,5 +2,6 @@
 
 public enum ShipmentType
 {
-    FreshFoodShipment = 1 << 0,
+    FreshFoodShipment = 1,
+    StandardShipment = 2,
 }

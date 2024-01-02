@@ -1,5 +1,6 @@
-﻿using ParcelLocker.Modules.Logistics.Domain.Storage.Entities.Shipments;
-using ParcelLocker.Modules.Logistics.Domain.Storage.Entities.StoringSpots;
+﻿using ParcelLocker.Modules.Logistics.Domain.Storage.Entities.Materialization;
+using ParcelLocker.Modules.Logistics.Domain.Storage.Entities.Shipments;
+using ParcelLocker.Modules.Logistics.Domain.Storage.Factories;
 using ParcelLocker.Modules.Logistics.Domain.Storage.Repositories;
 using ParcelLocker.Shared.Abstractions.Kernel.Types;
 
@@ -7,25 +8,23 @@ namespace ParcelLocker.Modules.Logistics.Domain.Storage.DomainServices;
 
 public class ShipmentStorageDomainService
 {
-    private readonly IStorageSpotRepository _storageSpotRepository;
+    private readonly IStoreroomRepository _storeroomRepository;
+    private readonly StoringSpecificationFactory _storingSpecificationFactory;
 
-    public ShipmentStorageDomainService(IStorageSpotRepository storageSpotRepository)
+    public ShipmentStorageDomainService(IStoreroomRepository storeroomRepository, StoringSpecificationFactory storingSpecificationFactory)
     {
-        _storageSpotRepository = storageSpotRepository;
+        _storeroomRepository = storeroomRepository;
+        _storingSpecificationFactory = storingSpecificationFactory;
     }
 
-    public async Task<List<StoringSpot>> GetAvailableStoringSpots(AggregateId storehouseId, Shipment shipment)
+    public async Task<List<MaterializedContainer>> GetAvailableStoringSpots(AggregateId storehouseId, Shipment shipment)
     {
-        var storingSpots = await _storageSpotRepository.GetStoringSpotsByTypeAsync(storehouseId, Map(shipment.ShipmentType));
-        var availableStoringSpots = storingSpots.Where(x => x.HasPlaceForShipment(shipment)).ToList();
+        var storerooms = await _storeroomRepository.GetStoreroomsAsync(storehouseId);
+        var conditions = _storingSpecificationFactory.GetConditions(shipment);
+        var materializedStoringSpots = storerooms.SelectMany(x => x.StoringSpots.Select(y => new MaterializedContainer(x, y)));
 
-        return availableStoringSpots;
+        var matchingStoringSpots = materializedStoringSpots.Where(x => conditions.Check(x)).ToList();
+
+        return matchingStoringSpots;
     }
-
-    private StoringSpotType Map(ShipmentType shipmentType)
-        => shipmentType switch
-        {
-            ShipmentType.FreshFoodShipment => StoringSpotType.Fresh,
-            _ => StoringSpotType.Fresh
-        };
 }
