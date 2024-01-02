@@ -2,6 +2,8 @@
 
 public enum ShipmentType
 {
-    FreshFoodShipment = 1,
+    DiaryFoodShipment = 1,
     StandardShipment = 2,
+    VegetablesShipment = 3,
+    FruitsShipment = 4
 }
