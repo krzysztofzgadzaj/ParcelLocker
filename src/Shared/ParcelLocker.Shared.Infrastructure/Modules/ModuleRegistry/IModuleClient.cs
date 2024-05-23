@@ -3,4 +3,5 @@
 public interface IModuleClient
 {
     Task PublishAsync(object message);
+    Task<T> SendAsync<T>(string path, object args);
 }

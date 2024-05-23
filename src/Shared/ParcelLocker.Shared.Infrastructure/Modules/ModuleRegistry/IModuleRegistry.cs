@@ -2,6 +2,9 @@
 
 public interface IModuleRegistry
 {
-    void Add(ModuleRegistryEntry moduleRegistryEntry);
-    IEnumerable<ModuleRegistryEntry> GetByKey(string key);
+    void AddAsyncCommunication(ModuleRegistryEntry moduleRegistryEntry);
+    IEnumerable<ModuleRegistryEntry> GetAsyncByKey(string key);
+
+    void AddSyncCommunication(SyncModuleRegistryEntry syncModuleRegistryEntry);
+    SyncModuleRegistryEntry GetSyncByKey(string key);
 }

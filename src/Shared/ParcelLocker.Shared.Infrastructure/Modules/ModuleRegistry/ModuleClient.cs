@@ -1,4 +1,5 @@
-﻿using ParcelLocker.Shared.Abstractions.TextSerializer;
+﻿using System.Text.Json;
+using ParcelLocker.Shared.Abstractions.TextSerializer;
 
 namespace ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
@@ -16,16 +17,31 @@ public class ModuleClient : IModuleClient
     public async Task PublishAsync(object message)
     {
         var registryEntries = _moduleRegistry
-            .GetByKey(message.GetType().Name)
+            .GetAsyncByKey(message.GetType().Name)
             .Where(r => r.ToType != message.GetType());;
 
         foreach (var registryEntry in registryEntries)
         {
-            var mappedObject = MapEvent(message, registryEntry.ToType);
+            var mappedObject = MapMessage(message, registryEntry.ToType);
             await registryEntry.Action(mappedObject);
         }
     }
+
+    public async Task<T> SendAsync<T>(string path, object args)
+    {
+        var registryEntry = _moduleRegistry.GetSyncByKey(path);
+
+        if (registryEntry is null)
+        {
+            throw new ApplicationException();
+        }
+
+        var arguments = MapMessage(args, registryEntry.DestinationType);
+        var response = await registryEntry.Action(arguments);
+
+        return JsonSerializer.Deserialize<T>(_textSerializer.Serialize(response));
+    }
     
-    private object MapEvent(object message, Type targetType)
+    private object MapMessage(object message, Type targetType)
         => _textSerializer.Deserialize(_textSerializer.Serialize(message), targetType);
 }

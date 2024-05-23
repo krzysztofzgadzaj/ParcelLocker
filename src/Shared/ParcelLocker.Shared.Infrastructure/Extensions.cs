@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,7 @@ using ParcelLocker.Shared.Infrastructure.Messaging;
 using ParcelLocker.Shared.Infrastructure.Modules;
 using ParcelLocker.Shared.Infrastructure.Queries;
 using ParcelLocker.Shared.Infrastructure.TextSerializer;
+using ParcelLocker.Shared.Infrastructure.Localization;
 
 namespace ParcelLocker.Shared.Infrastructure;
 
@@ -28,6 +30,7 @@ public static class Extensions
         serviceCollection.AddCommands(assemblies);
         serviceCollection.AddDomainEvents(assemblies);
         serviceCollection.AddMessageBroker(configuration);
+        serviceCollection.AddGeographicalLocalization();
         
         var disabledModules = new List<string>();
         using (var serviceProvider = serviceCollection.BuildServiceProvider())
@@ -48,7 +51,7 @@ public static class Extensions
         }
 
         serviceCollection
-            .AddControllers()
+            .AddControllers(options => options.Conventions.Add(new KebabCaseRouteConvention()))
             .ConfigureApplicationPartManager(manager =>
             {
                 var removedParts = new List<ApplicationPart>();
@@ -74,7 +77,25 @@ public static class Extensions
         
         // TODO - Verify if this extension is needed.
         serviceCollection.AddEndpointsApiExplorer();
-        serviceCollection.AddSwaggerGen();
+        serviceCollection.AddSwaggerGen(options =>
+        {
+            options.TagActionsBy(api =>
+            {
+                if (api.GroupName != null)
+                {
+                    return new[] { api.GroupName };
+                }
+
+                var controllerActionDescriptor = api.ActionDescriptor as ControllerActionDescriptor;
+                if (controllerActionDescriptor != null)
+                {
+                    return new[] { controllerActionDescriptor.ControllerName };
+                }
+
+                throw new InvalidOperationException("Unable to determine tag for endpoint.");
+            });
+            options.DocInclusionPredicate((name, api) => true);
+        });
 
         return serviceCollection;
     }
