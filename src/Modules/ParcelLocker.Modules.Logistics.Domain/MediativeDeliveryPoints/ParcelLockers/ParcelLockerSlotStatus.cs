@@ -1,4 +1,4 @@
-﻿namespace ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLocker;
+﻿namespace ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLockers;
 
 public enum ParcelLockerSlotStatus
 {

@@ -5,7 +5,12 @@ namespace ParcelLocker.Modules.Logistics.Infrastructure.Repositories;
 
 public class MdpCompanyRepository : IMdpCompanyRepository
 {
-    private readonly List<MdpCompany> _mdpCompanies = new ();
+    private readonly List<MdpCompany> _mdpCompanies = new ()
+    {
+        new MdpCompany(new MdpCompanyId(Guid.NewGuid()), "ParcelLocker", MdpTypes.ParcelLocker),
+        new MdpCompany(new MdpCompanyId(Guid.NewGuid()), "ShoppingPoint", MdpTypes.ShoppingPoint),
+        new MdpCompany(new MdpCompanyId(Guid.NewGuid()), "Both", MdpTypes.ParcelLocker | MdpTypes.ShoppingPoint),
+    };
     
     public async Task Add(MdpCompany mdpCompany)
     {

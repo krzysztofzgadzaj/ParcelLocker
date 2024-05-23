@@ -1,7 +1,7 @@
 ﻿using ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.Exceptions;
 using ParcelLocker.Shared.Abstractions.Localization;
 
-namespace ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLocker;
+namespace ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLockers;
 
 public class ParcelLocker : MediativeDeliveryPoint
 {

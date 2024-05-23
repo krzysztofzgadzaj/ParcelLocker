@@ -5,7 +5,7 @@ namespace ParcelLocker.Modules.Logistics.Infrastructure.Repositories;
 
 public class MdpRepository : IMdpRepository
 {
-    private readonly List<MediativeDeliveryPoint> _mediativeDeliveryPoints = new ();
+    private readonly List<MediativeDeliveryPoint> _mediativeDeliveryPoints = new();
 
     public async Task Create(MediativeDeliveryPoint mediativeDeliveryPoint)
     {

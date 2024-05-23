@@ -1,6 +1,6 @@
 ﻿using ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.Exceptions;
 
-namespace ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLocker;
+namespace ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLockers;
 
 public class ParcelLockerSerialCode
 {

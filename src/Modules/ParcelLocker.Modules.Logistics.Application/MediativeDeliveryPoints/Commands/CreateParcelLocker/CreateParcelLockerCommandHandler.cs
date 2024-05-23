@@ -1,6 +1,6 @@
 ﻿using ParcelLocker.Modules.Logistics.Application.MediativeDeliveryPoints.DTO;
 using ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints;
-using ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLocker;
+using ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLockers;
 using ParcelLocker.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
 using ParcelLocker.Shared.Abstractions.Commands;
 using ParcelLocker.Shared.Abstractions.Localization;
@@ -32,7 +32,7 @@ public class CreateParcelLockerCommandHandler : ICommandHandler<CreateParcelLock
             throw new ApplicationException();
         }
         
-        var parcelLocker = new Logistics.Domain.MediativeDeliveryPoints.ParcelLocker.ParcelLocker(slots, serialCode, address, mdpCompany);
+        var parcelLocker = new Domain.MediativeDeliveryPoints.ParcelLockers.ParcelLocker(slots, serialCode, address, mdpCompany);
         await _mdpRepository.Create(parcelLocker);
         
         // TODO - Publish event, domain or integration using UnitOfWork
