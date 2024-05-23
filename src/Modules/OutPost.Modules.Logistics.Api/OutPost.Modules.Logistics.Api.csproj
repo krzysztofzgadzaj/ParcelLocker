@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>ParcelLocker.Bootstrapper</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OutPost.Modules.Logistics.Infrastructure\OutPost.Modules.Logistics.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="appsettings.mdp.json" />
+      <None Remove="appsettings.mdp.development.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="appsettings.logistics.development.json" />
+      <Content Include="appsettings.logistics.development.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="appsettings.logistics.json" />
+      <Content Include="appsettings.logistics.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

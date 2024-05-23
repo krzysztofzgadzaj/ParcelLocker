@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>OutPost.Bootstrapper</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Modules\OutPost.Modules.Backoffice.Api\OutPost.Modules.Backoffice.Api.csproj" />
+      <ProjectReference Include="..\..\Modules\OutPost.Modules.Commission.Api\OutPost.Modules.Commission.Api.csproj" />
+      <ProjectReference Include="..\..\Modules\OutPost.Modules.Logistics.Api\OutPost.Modules.Logistics.Api.csproj" />
+      <ProjectReference Include="..\..\Shared\OutPost.Shared.Infrastructure\OutPost.Shared.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
