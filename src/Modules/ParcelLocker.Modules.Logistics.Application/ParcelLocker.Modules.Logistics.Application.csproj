@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>ParcelLocker.Modules.Logistics.Application</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ParcelLocker.Modules.Logistics.Domain\ParcelLocker.Modules.Logistics.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="MediativeDeliveryPoints\" />
+    </ItemGroup>
+
+</Project>
