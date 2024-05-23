@@ -17,7 +17,7 @@ public class ModuleClient : IModuleClient
     public async Task PublishAsync(object message)
     {
         var registryEntries = _moduleRegistry
-            .GetAsyncByKey(message.GetType().Name)
+            .GetBroadcastNotification(message.GetType().Name)
             .Where(r => r.ToType != message.GetType());;
 
         foreach (var registryEntry in registryEntries)
@@ -29,7 +29,7 @@ public class ModuleClient : IModuleClient
 
     public async Task<T> SendAsync<T>(string path, object args)
     {
-        var registryEntry = _moduleRegistry.GetSyncByKey(path);
+        var registryEntry = _moduleRegistry.GetRequestNotification(path);
 
         if (registryEntry is null)
         {

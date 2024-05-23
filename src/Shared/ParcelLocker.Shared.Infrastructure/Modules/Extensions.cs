@@ -19,13 +19,13 @@ public static class Extensions
         });
 
         serviceCollection.AddSingleton<IModuleClient, ModuleClient>();
-        serviceCollection.AddSingleton<IModuleDisplayer, ModuleDisplayer>();
+        serviceCollection.AddSingleton<IRequestRegistry, RequestRegistry>();
 
         return serviceCollection;
     }
 
-    public static IModuleDisplayer UseSyncCommunication(this WebApplication webApplication)
-        => webApplication.Services.GetRequiredService<IModuleDisplayer>();
+    public static IRequestRegistry UseRequestRegistration(this WebApplication webApplication)
+        => webApplication.Services.GetRequiredService<IRequestRegistry>();
 
     private static Registry PopulateAsyncOperations(this Registry moduleRegistry, IServiceProvider serviceProvider, IEnumerable<Assembly> assemblies)
     {
@@ -36,7 +36,7 @@ public static class Extensions
         
         foreach (var eventType in eventTypes)
         {
-            moduleRegistry.AddAsyncCommunication(new ModuleRegistryEntry(eventType, x =>
+            moduleRegistry.AddBroadcastNotification(new BroadcastNotificationRegistryEntry(eventType, x =>
                 (Task) eventDispatcher
                     .GetType()
                     .GetMethod(nameof(eventDispatcher.PublishAsync))

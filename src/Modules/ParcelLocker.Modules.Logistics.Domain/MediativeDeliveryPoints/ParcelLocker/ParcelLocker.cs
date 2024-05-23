@@ -7,15 +7,15 @@ public class ParcelLocker : MediativeDeliveryPoint
 {
     public ParcelLocker(IEnumerable<ParcelLockerSlot> slots, ParcelLockerSerialCode serialCode, Address address, MdpCompany mdpCompany)
     {
-        //var minimumSmallSlotsAmountMatches = slots.Count(x => x.HasStandardSmallDimensions) >= 20;
-        //var minimumMediumSlotsAmountMatches = slots.Count(x => x.HasStandardMediumDimensions) >= 10;
-        //var minimumBigSlotsAmountMatches = slots.Count(x => x.HasStandardBigDimensions) >= 5;
-//
-        //if (!(minimumSmallSlotsAmountMatches && minimumMediumSlotsAmountMatches && minimumBigSlotsAmountMatches))
-        //{
-        //    throw new CannotCreateParcelLockerWithoutMandatorySlotsException(
-        //        "Parcel locker needs to contain required mandatory slots");
-        //}
+        var minimumSmallSlotsAmountMatches = slots.Count(x => x.HasStandardSmallDimensions) >= 20;
+        var minimumMediumSlotsAmountMatches = slots.Count(x => x.HasStandardMediumDimensions) >= 10;
+        var minimumBigSlotsAmountMatches = slots.Count(x => x.HasStandardBigDimensions) >= 5;
+
+        if (!(minimumSmallSlotsAmountMatches && minimumMediumSlotsAmountMatches && minimumBigSlotsAmountMatches))
+        {
+            throw new CannotCreateParcelLockerWithoutMandatorySlotsException(
+                "Parcel locker needs to contain required mandatory slots");
+        }
 
         if (!mdpCompany.MdpTypeAllowed(MdpType))
         {

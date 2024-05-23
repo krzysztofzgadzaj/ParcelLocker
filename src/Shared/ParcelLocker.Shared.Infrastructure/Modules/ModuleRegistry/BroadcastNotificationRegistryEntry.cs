@@ -1,8 +1,8 @@
 ﻿namespace ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
-public class ModuleRegistryEntry
+public class BroadcastNotificationRegistryEntry
 {
-    public ModuleRegistryEntry(Type toType, Func<object, Task> action)
+    public BroadcastNotificationRegistryEntry(Type toType, Func<object, Task> action)
     {
         ToType = toType;
         Action = action;

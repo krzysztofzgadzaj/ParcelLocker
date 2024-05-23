@@ -2,20 +2,20 @@
 
 public class ModuleRegistry : IModuleRegistry
 {
-    private readonly List<ModuleRegistryEntry> _moduleRegistryEntries = new();
+    private readonly List<BroadcastNotificationRegistryEntry> _moduleRegistryEntries = new();
     private readonly List<SyncModuleRegistryEntry> _syncModuleRegistryEntries = new();
     
-    public void AddAsyncCommunication(ModuleRegistryEntry moduleRegistryEntry)
-        => _moduleRegistryEntries.Add(moduleRegistryEntry);
+    public void AddBroadcastNotification(BroadcastNotificationRegistryEntry broadcastNotificationRegistryEntry)
+        => _moduleRegistryEntries.Add(broadcastNotificationRegistryEntry);
 
-    public IEnumerable<ModuleRegistryEntry> GetAsyncByKey(string key)
+    public IEnumerable<BroadcastNotificationRegistryEntry> GetBroadcastNotification(string key)
         => _moduleRegistryEntries
             .Where(x => x.Key == key);
 
-    public void AddSyncCommunication(SyncModuleRegistryEntry syncModuleRegistryEntry)
+    public void AddRequestNotification(SyncModuleRegistryEntry syncModuleRegistryEntry)
         => _syncModuleRegistryEntries.Add(syncModuleRegistryEntry);
 
-    public SyncModuleRegistryEntry GetSyncByKey(string key)
+    public SyncModuleRegistryEntry GetRequestNotification(string key)
         => _syncModuleRegistryEntries
             .Find(x => x.Key == key);
 }

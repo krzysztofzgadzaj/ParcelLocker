@@ -22,8 +22,7 @@ public class BackofficeModule : IModule
 
     public void Use(WebApplication webApplication)
     {
-        // TODO - In progress
-        webApplication.UseSyncCommunication().Display(
+        webApplication.UseRequestRegistration().Display(
             "/outpost-configuration/markup", 
             (IServiceProvider serviceCollection, object args) 
                 => serviceCollection.GetRequiredService<IOutpostConfigurationService>().GetSingle());

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using ParcelLocker.Modules.Commission.Application;
+using ParcelLocker.Modules.Commission.Infrastructure;
 using ParcelLocker.Shared.Abstractions.Modules;
 
 namespace ParcelLocker.Modules.Commission.Api;
@@ -13,6 +15,9 @@ public class CommissionModule : IModule
     
     public void Register(IServiceCollection serviceCollection)
     {
+        serviceCollection
+            .AddInfrastructure()
+            .AddApplication();
     }
 
     public void Use(WebApplication webApplication)

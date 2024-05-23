@@ -1,11 +1,13 @@
+using Microsoft.Extensions.DependencyInjection;
+
 namespace ParcelLocker.Shared.Infrastructure.Modules.ModuleRegistry;
 
-class ModuleDisplayer : IModuleDisplayer
+class RequestRegistry : IRequestRegistry
 {
     private readonly IModuleRegistry _moduleRegistry;
     private readonly IServiceProvider _serviceProvider;
 
-    public ModuleDisplayer(IModuleRegistry moduleRegistry, IServiceProvider serviceProvider)
+    public RequestRegistry(IModuleRegistry moduleRegistry, IServiceProvider serviceProvider)
     {
         _moduleRegistry = moduleRegistry;
         _serviceProvider = serviceProvider;
@@ -15,11 +17,12 @@ class ModuleDisplayer : IModuleDisplayer
         where TArg : class 
         where TResult : class
     {
-        _moduleRegistry.AddSyncCommunication(new SyncModuleRegistryEntry(
+        _moduleRegistry.AddRequestNotification(new SyncModuleRegistryEntry(
             typeof(TArg),
             async (args) =>
             {
-                var result = await action(_serviceProvider, (TArg) args);
+                using var scope = _serviceProvider.CreateScope();
+                var result = await action(scope.ServiceProvider, (TArg) args);
                 return result;
             }, 
             path));
