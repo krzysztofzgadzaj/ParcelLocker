@@ -6,9 +6,9 @@ public class Parcel
     {
         ParcelParameters = parcelParameters;
 
-        Id = new ParcelId(Guid.NewGuid());
+        Id = Guid.NewGuid();
     }
 
-    public ParcelId Id { get; init; }
+    public Guid Id { get; init; }
     public ParcelParameters ParcelParameters { get; init; }
 }

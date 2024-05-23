@@ -2,9 +2,9 @@
 
 public class MdpCompany
 {
-    public MdpCompany(MdpCompanyId id, string name, MdpTypes allowedMdpTypes)
+    public MdpCompany(Guid id, string name, MdpTypes allowedMdpTypes)
     {
-        if (id is null || string.IsNullOrEmpty(name))
+        if (id == Guid.Empty || string.IsNullOrEmpty(name))
         {
             throw new ArgumentException();
         }
@@ -14,7 +14,7 @@ public class MdpCompany
         AllowedMdpTypes = allowedMdpTypes;
     }
 
-    public MdpCompanyId Id { get; init; }
+    public Guid Id { get; init; }
     public string Name { get; init; }
     public MdpTypes AllowedMdpTypes { get; init; }
 

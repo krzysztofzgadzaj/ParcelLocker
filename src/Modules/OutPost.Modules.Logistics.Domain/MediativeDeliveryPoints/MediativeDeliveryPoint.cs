@@ -2,7 +2,7 @@
 
 namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints;
 
-public abstract class MediativeDeliveryPoint : AggregateRoot<MediativeDeliveryPointId>, IMdpAvaiability, IMdpStorageAvailability
+public abstract class MediativeDeliveryPoint : AggregateRoot, IMdpAvaiability, IMdpStorageAvailability
 {
     public abstract bool IsActive();
     public abstract void Activate();

@@ -27,7 +27,7 @@ public class ParcelLocker : MediativeDeliveryPoint
         SerialCode = serialCode;
         Address = address;
         Status = MdpStatus.Inactive;
-        Id = new MediativeDeliveryPointId(Guid.NewGuid());
+        Id = Guid.NewGuid();
     }
     
     public MdpCompany MdpCompany { get; init; }

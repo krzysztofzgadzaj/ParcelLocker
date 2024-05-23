@@ -18,5 +18,5 @@ public static class MdpCompanyMapper
         };
 
     public static MdpCompanyCreated MapToEvent(this MdpCompany mdpCompany)
-        => new (mdpCompany.Id.Id, mdpCompany.MarkupPercentage, mdpCompany.Name, mdpCompany.MdpTypes);
+        => new (mdpCompany.Id, mdpCompany.MarkupPercentage, mdpCompany.Name, mdpCompany.MdpTypes);
 }

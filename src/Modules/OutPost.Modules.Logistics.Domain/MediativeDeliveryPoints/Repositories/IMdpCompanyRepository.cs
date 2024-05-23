@@ -3,6 +3,6 @@
 public interface IMdpCompanyRepository
 {
     Task Add(MdpCompany mdpCompany);
-    Task<MdpCompany?> GetById(MdpCompanyId id);
+    Task<MdpCompany?> GetById(Guid id);
     Task<IEnumerable<MdpCompany>> GetMdpCompanies();
 }

@@ -12,7 +12,7 @@ public class MdpCompanyRepository : IMdpCompanyRepository
         _mdpCompanies.Add(mdpCompany);
     }
 
-    public async Task<MdpCompany?> GetById(MdpCompanyId id)
+    public async Task<MdpCompany?> GetById(Guid id)
     {
         return _mdpCompanies.FirstOrDefault(x => x.Id == id);
     }

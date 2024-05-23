@@ -10,7 +10,7 @@ public class MdpCompanyDto
 
     public MdpCompanyDto(MdpCompany mdpCompany)
     {
-        Id = mdpCompany.Id.Id;
+        Id = mdpCompany.Id;
         Name = mdpCompany.Name;
         AllowedMdpTypes = mdpCompany.AllowedMdpTypes;
     }

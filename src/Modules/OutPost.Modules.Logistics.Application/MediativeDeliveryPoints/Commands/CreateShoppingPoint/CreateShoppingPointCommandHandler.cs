@@ -26,7 +26,7 @@ public class CreateShoppingPointCommandHandler : ICommandHandler<CreateShoppingP
         var storage = new StorageCapacity(maxParcelLengthInCm, maxParcelHeightInCm, maxParcelWidthInCm, maxParcelWeightInKg, capacityInCm);
         var naturalIdentifier = new ShoppingPointIdentifier(command.ShoppingPointIdentifier);
         var address = CreateAddress(command.Address);
-        var mdpCompany = await _mdpCompanyRepository.GetById(new MdpCompanyId(command.MdpCompanyId));
+        var mdpCompany = await _mdpCompanyRepository.GetById(command.MdpCompanyId);
 
         if (mdpCompany is null)
         {

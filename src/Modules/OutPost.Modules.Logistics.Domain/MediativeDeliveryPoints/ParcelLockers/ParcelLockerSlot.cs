@@ -21,7 +21,7 @@ public class ParcelLockerSlot
     public double LengthInCm { get; }
     public double WidthInCm { get; }
     public double HeightInCm { get; }
-    public ParcelId? AssignedParcelId { get; private set; }
+    public Guid? AssignedParcelId { get; private set; }
     
     public bool IsReservedOrOccupied => Status is ParcelLockerSlotStatus.Reserved or ParcelLockerSlotStatus.Occupied;
     

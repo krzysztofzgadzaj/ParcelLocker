@@ -25,7 +25,7 @@ public class CreateParcelLockerCommandHandler : ICommandHandler<CreateParcelLock
         var slots = CreateSlots(command.Slots);
         var serialCode = new ParcelLockerSerialCode(command.SerialCode);
         var address = CreateAddress(command.Address);
-        var mdpCompany = await _mdpCompanyRepository.GetById(new MdpCompanyId(command.MdpCompanyId));
+        var mdpCompany = await _mdpCompanyRepository.GetById(command.MdpCompanyId);
 
         if (mdpCompany is null)
         {

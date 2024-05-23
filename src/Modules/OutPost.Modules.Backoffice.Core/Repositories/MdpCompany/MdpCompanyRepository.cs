@@ -8,7 +8,7 @@ public class MdpCompanyRepository : IMdpCompanyRepository
         => _mdpCompanies;
 
     public async Task<Entities.MdpCompany?> GetById(Guid id)
-        => _mdpCompanies.Find(x => x.Id.Id == id);
+        => _mdpCompanies.Find(x => x.Id == id);
 
     public async Task Create(Entities.MdpCompany mdpCompany)
     {

@@ -15,14 +15,14 @@ public class MdpCompanyCreatedEventHandler : IEventHandler<MdpCompanyCreated>
     
     public async Task HandleAsync(MdpCompanyCreated @event)
     {
-        var storedEvent = await _mdpCompanyRepository.GetById(new MdpCompanyId(@event.Id));
+        var storedEvent = await _mdpCompanyRepository.GetById(@event.Id);
 
         if (storedEvent is not null)
         {
             throw new ApplicationException();
         }
 
-        var mdpCompany = new MdpCompany(new MdpCompanyId(@event.Id), @event.Name, @event.AllowedMdpTypes);
+        var mdpCompany = new MdpCompany(@event.Id, @event.Name, @event.AllowedMdpTypes);
         await _mdpCompanyRepository.Add(mdpCompany);
     }
 }

@@ -15,6 +15,6 @@ public class MdpRepository : IMdpRepository
     public async Task<IEnumerable<MediativeDeliveryPoint>> Get()
         => _mediativeDeliveryPoints;
 
-    public async Task<MediativeDeliveryPoint?> GetById(MediativeDeliveryPointId mdpId)
-        => _mediativeDeliveryPoints.FirstOrDefault(x => x.Id.Id == mdpId.Id);
+    public async Task<MediativeDeliveryPoint?> GetById(Guid mdpId)
+        => _mediativeDeliveryPoints.FirstOrDefault(x => x.Id == mdpId);
 }
