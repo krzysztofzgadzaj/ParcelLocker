@@ -9,7 +9,7 @@ using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
 using OutPost.Shared.Abstractions.Localization;
 using Xunit;
 
-namespace Outpost.Modules.Logistics.Tests.Units.UseCases;
+namespace Outpost.Modules.Logistics.Tests.Units.UseCases.Commands;
 
 public class CreateParcelLockerTests
 {

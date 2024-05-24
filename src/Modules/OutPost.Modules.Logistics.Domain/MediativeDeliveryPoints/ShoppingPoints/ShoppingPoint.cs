@@ -1,7 +1,7 @@
 ﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Exceptions;
 using OutPost.Shared.Abstractions.Localization;
 
-namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.ShoppingPoint;
+namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.ShoppingPoints;
 
 public class ShoppingPoint : MediativeDeliveryPoint
 {
@@ -18,7 +18,7 @@ public class ShoppingPoint : MediativeDeliveryPoint
         Status = MdpStatus.Inactive;
         StorageCapacity = storageCapacity;
     }
-
+ 
     public MdpCompany MdpCompany { get; }
     public Address Address { get; }
     public ShoppingPointIdentifier ShoppingPointIdentifier { get; }

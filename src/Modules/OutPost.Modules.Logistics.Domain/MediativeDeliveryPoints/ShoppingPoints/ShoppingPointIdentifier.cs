@@ -1,6 +1,6 @@
 ﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Exceptions;
 
-namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.ShoppingPoint;
+namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.ShoppingPoints;
 
 public class ShoppingPointIdentifier
 {
