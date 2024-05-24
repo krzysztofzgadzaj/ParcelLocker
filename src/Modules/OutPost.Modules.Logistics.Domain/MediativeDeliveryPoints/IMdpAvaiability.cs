@@ -2,7 +2,6 @@
 
 public interface IMdpAvaiability
 {
-    bool IsActive();
     void Activate();
     void Deactivate();
 }

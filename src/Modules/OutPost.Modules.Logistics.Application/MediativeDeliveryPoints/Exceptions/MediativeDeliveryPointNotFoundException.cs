@@ -2,9 +2,9 @@
 
 namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Exceptions;
 
-public class ParcelLockerNotFoundException : NotFoundException
+public class MediativeDeliveryPointNotFoundException : NotFoundException
 {
-    public ParcelLockerNotFoundException(string text) : base(text)
+    public MediativeDeliveryPointNotFoundException(string text) : base(text)
     {
     }
 }

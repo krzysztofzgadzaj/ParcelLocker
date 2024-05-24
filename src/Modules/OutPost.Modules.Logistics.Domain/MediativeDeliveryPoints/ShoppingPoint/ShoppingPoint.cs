@@ -26,11 +26,6 @@ public class ShoppingPoint : MediativeDeliveryPoint
     public MdpStatus Status { get; private set; }
     public MdpTypes MdpType => MdpTypes.ShoppingPoint;
 
-    public override bool IsActive()
-    {
-        throw new NotImplementedException();
-    }
-
     public override void Activate()
     {
         Status = MdpStatus.Active;
@@ -42,6 +37,16 @@ public class ShoppingPoint : MediativeDeliveryPoint
     }
 
     public override bool CanStoreParcel(ParcelParameters parcelParameters)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void ReserveSlotForParcel(Parcel parcel)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void StoreParcel(Parcel parcel)
     {
         throw new NotImplementedException();
     }

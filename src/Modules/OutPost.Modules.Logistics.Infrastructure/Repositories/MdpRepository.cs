@@ -17,4 +17,9 @@ public class MdpRepository : IMdpRepository
 
     public async Task<MediativeDeliveryPoint?> GetById(Guid mdpId)
         => _mediativeDeliveryPoints.FirstOrDefault(x => x.Id == mdpId);
+
+    public async Task<IEnumerable<MediativeDeliveryPoint>> GetAvailableMdpsForParcel(ParcelParameters parcelParameters)
+        => _mediativeDeliveryPoints
+            .Where(x => x.CanStoreParcel(parcelParameters))
+            .ToList();
 }

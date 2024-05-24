@@ -4,16 +4,16 @@ namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.ParcelLockers
 
 public class ParcelLockerSlot
 {
-    public ParcelLockerSlot(double lengthInCm, double heightInCm, double widthInCm)
+    public ParcelLockerSlot(double lengthInCm, double widthInCm, double heightInCm)
     {
-        if (lengthInCm <= 0 || heightInCm <= 0 || widthInCm <= 0)
+        if (lengthInCm <= 0 || widthInCm <= 0 || heightInCm <= 0)
         {
             throw new IncorrectParcelLockerSlotDimensionException("One of dimensions is incorrect");
         }
         
         LengthInCm = lengthInCm;
-        HeightInCm = heightInCm;
         WidthInCm = widthInCm;
+        HeightInCm = heightInCm;
         Status = ParcelLockerSlotStatus.Available;
     }
     
@@ -39,4 +39,39 @@ public class ParcelLockerSlot
         => LengthInCm == 41
            && WidthInCm == 28
            && HeightInCm == 64;
+
+    public bool CanStoreParcel(ParcelParameters parcelParameters)
+        => Status == ParcelLockerSlotStatus.Available
+           && DoesParcelFits(parcelParameters);
+
+    public void ReserveSlot(Parcel parcel)
+    {
+        if (!CanStoreParcel(parcel.ParcelParameters))
+        {
+            throw new ApplicationException();
+        }
+        
+        AssignedParcelId = parcel.Id;
+        Status = ParcelLockerSlotStatus.Reserved;
+    }
+
+    public void StoreParcel(Parcel parcel)
+    {
+        if (parcel.Id != AssignedParcelId)
+        {
+            throw new ApplicationException();
+        }
+
+        Status = ParcelLockerSlotStatus.Occupied;
+    }
+    
+    private bool DoesParcelFits(ParcelParameters parcel)
+    {
+        return (parcel.LengthInCm <= LengthInCm  && parcel.WidthInCm <= WidthInCm && parcel.HeightInCm <= HeightInCm) ||
+               (parcel.LengthInCm <= LengthInCm  && parcel.HeightInCm <= WidthInCm && parcel.WidthInCm <= HeightInCm) ||
+               (parcel.WidthInCm <= LengthInCm && parcel.LengthInCm <= WidthInCm && parcel.HeightInCm <= HeightInCm) ||
+               (parcel.WidthInCm <= LengthInCm && parcel.HeightInCm <= WidthInCm && parcel.LengthInCm <= HeightInCm) ||
+               (parcel.HeightInCm <= LengthInCm  && parcel.LengthInCm <= WidthInCm && parcel.WidthInCm <= HeightInCm) ||
+               (parcel.HeightInCm <= LengthInCm  && parcel.WidthInCm <= WidthInCm && parcel.LengthInCm <= HeightInCm);
+    }
 }

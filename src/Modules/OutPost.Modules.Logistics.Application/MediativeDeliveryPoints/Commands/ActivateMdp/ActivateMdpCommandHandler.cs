@@ -15,13 +15,13 @@ public class ActivateMdpCommandHandler : ICommandHandler<ActivateMdpCommand>
 
     public async Task SendAsync(ActivateMdpCommand command)
     {
-        var parcelLocker = await _mdpRepository.GetById(command.Id);
+        var mediativeDeliveryPoint = await _mdpRepository.GetById(command.Id);
 
-        if (parcelLocker is null)
+        if (mediativeDeliveryPoint is null)
         {
-            throw new ParcelLockerNotFoundException("");
+            throw new MediativeDeliveryPointNotFoundException("");
         }
         
-        parcelLocker.Activate();
+        mediativeDeliveryPoint.Activate();
     }
 }

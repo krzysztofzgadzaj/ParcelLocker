@@ -7,9 +7,9 @@ public class ParcelLocker : MediativeDeliveryPoint
 {
     public ParcelLocker(IEnumerable<ParcelLockerSlot> slots, ParcelLockerSerialCode serialCode, Address address, MdpCompany mdpCompany)
     {
-        var minimumSmallSlotsAmountMatches = slots.Count(x => x.HasStandardSmallDimensions) >= 2;
-        var minimumMediumSlotsAmountMatches = slots.Count(x => x.HasStandardMediumDimensions) >= 1;
-        var minimumBigSlotsAmountMatches = slots.Count(x => x.HasStandardBigDimensions) >= 1;
+        var minimumSmallSlotsAmountMatches = slots.Count(x => x.HasStandardSmallDimensions) >= 20;
+        var minimumMediumSlotsAmountMatches = slots.Count(x => x.HasStandardMediumDimensions) >= 10;
+        var minimumBigSlotsAmountMatches = slots.Count(x => x.HasStandardBigDimensions) >= 5;
 
         if (!(minimumSmallSlotsAmountMatches && minimumMediumSlotsAmountMatches && minimumBigSlotsAmountMatches))
         {
@@ -37,11 +37,6 @@ public class ParcelLocker : MediativeDeliveryPoint
     public MdpStatus Status { get; private set; }
     public MdpTypes MdpType => MdpTypes.ParcelLocker;
 
-    public override bool IsActive()
-    {
-        throw new NotImplementedException();
-    }
-
     public override void Activate()
     {
         Status = MdpStatus.Active;
@@ -58,7 +53,29 @@ public class ParcelLocker : MediativeDeliveryPoint
     }
 
     public override bool CanStoreParcel(ParcelParameters parcelParameters)
+        => Status == MdpStatus.Active 
+           && Slots.Any(x => x.CanStoreParcel(parcelParameters));
+
+    public override void ReserveSlotForParcel(Parcel parcel)
     {
-        throw new NotImplementedException();
+        if (!CanStoreParcel(parcel.ParcelParameters))
+        {
+            throw new ApplicationException();
+        }
+
+        var availableSlot = Slots.First(x => x.CanStoreParcel(parcel.ParcelParameters));
+        availableSlot.ReserveSlot(parcel);
+    }
+
+    public override void StoreParcel(Parcel parcel)
+    {
+        var assignedSlot = Slots.FirstOrDefault(x => x.AssignedParcelId == parcel.Id);
+
+        if (assignedSlot is null)
+        {
+            throw new ApplicationException();
+        }
+        
+        assignedSlot.StoreParcel(parcel);
     }
 }

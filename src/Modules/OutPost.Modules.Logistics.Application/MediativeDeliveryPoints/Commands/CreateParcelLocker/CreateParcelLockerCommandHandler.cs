@@ -31,7 +31,7 @@ public class CreateParcelLockerCommandHandler : ICommandHandler<CreateParcelLock
             throw new ApplicationException();
         }
         
-        var parcelLocker = new Domain.MediativeDeliveryPoints.ParcelLockers.ParcelLocker(slots, serialCode, address, mdpCompany);
+        var parcelLocker = new ParcelLocker(slots, serialCode, address, mdpCompany);
         await _mdpRepository.Create(parcelLocker);
         
         // TODO - Publish event, domain or integration using UnitOfWork
@@ -39,7 +39,7 @@ public class CreateParcelLockerCommandHandler : ICommandHandler<CreateParcelLock
 
     private static List<ParcelLockerSlot> CreateSlots(IEnumerable<ParcelLockerSlotDto> parcelLockerSlotDtos)
         => parcelLockerSlotDtos
-            .Select(x => new ParcelLockerSlot(x.LengthInCm, x.HeightInCm, x.WidthInCm))
+            .Select(x => new ParcelLockerSlot(x.LengthInCm, x.WidthInCm, x.HeightInCm))
             .ToList();
 
     private Address CreateAddress(AddressDto addressDto)
