@@ -26,7 +26,7 @@ internal class MediativeDeliveryPointsController : BaseController
     }
     
     [HttpPost("type/parcel-locker")]
-    public async Task<IActionResult> CreateParcelLocker([FromBody] CreateParcelLockerCommand command)
+    public async Task<IActionResult> CreateParcelLocker([FromBody] CreateDraftParcelLockerCommand command)
     {
         await _commandDispatcher.SendAsync(command);
         return NoContent();

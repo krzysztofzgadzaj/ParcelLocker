@@ -1,5 +1,5 @@
-﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
+﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
 using OutPost.Shared.Abstractions.Queries;
 
 namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Queries.GetAvailableMdpsForParcel;

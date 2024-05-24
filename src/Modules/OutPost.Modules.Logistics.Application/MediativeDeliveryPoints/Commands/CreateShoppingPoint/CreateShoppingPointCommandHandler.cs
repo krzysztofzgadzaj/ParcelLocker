@@ -1,6 +1,7 @@
 ﻿using OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.DTO;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.ShoppingPoints;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.ShoppingPoints;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared.Repositories;
 using OutPost.Shared.Abstractions.Commands;
 using OutPost.Shared.Abstractions.Localization;
 

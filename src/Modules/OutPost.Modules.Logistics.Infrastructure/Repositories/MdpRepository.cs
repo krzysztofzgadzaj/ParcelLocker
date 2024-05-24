@@ -1,5 +1,5 @@
-﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
+﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
 
 namespace OutPost.Modules.Logistics.Infrastructure.Repositories;
 

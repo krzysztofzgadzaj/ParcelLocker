@@ -1,4 +1,4 @@
-﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints;
+﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared;
 
 namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.DTO;
 

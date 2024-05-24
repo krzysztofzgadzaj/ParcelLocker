@@ -1,5 +1,5 @@
 ﻿using OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.DTO;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared.Repositories;
 using OutPost.Shared.Abstractions.Queries;
 
 namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Queries.GetMdpCompanies;

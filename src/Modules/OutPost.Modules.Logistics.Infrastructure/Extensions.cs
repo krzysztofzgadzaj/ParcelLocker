@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Repositories;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared.Repositories;
 using OutPost.Modules.Logistics.Infrastructure.Repositories;
 
 

@@ -1,4 +1,4 @@
-﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints;
+﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared;
 using OutPost.Shared.Abstractions.Events;
 
 namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Events.External.MdpCompanyCreated;
