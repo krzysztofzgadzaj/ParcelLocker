@@ -5,5 +5,5 @@ namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeli
 
 public abstract class MediativeDeliveryPointDraft : AggregateRoot, IMdpDraftAvailability
 {
-    public abstract MediativeDeliveryPoint Activate();
+    public abstract MediativeDeliveryPointAccessor Activate();
 }

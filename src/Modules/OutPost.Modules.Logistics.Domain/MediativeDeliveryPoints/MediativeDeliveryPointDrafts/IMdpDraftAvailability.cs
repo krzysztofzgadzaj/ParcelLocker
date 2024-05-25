@@ -4,5 +4,5 @@ namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeli
 
 public interface IMdpDraftAvailability
 {
-    MediativeDeliveryPoint Activate();
+    MediativeDeliveryPointAccessor Activate();
 }

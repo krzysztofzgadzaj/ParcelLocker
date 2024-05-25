@@ -1,4 +1,6 @@
-﻿namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
+﻿using OutPost.Modules.Logistics.Domain.Shared;
+
+namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
 
 public interface IMdpRepository
 {

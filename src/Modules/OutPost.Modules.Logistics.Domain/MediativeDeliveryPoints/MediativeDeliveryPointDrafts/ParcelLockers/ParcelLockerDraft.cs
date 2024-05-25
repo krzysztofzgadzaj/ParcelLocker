@@ -38,8 +38,8 @@ public class ParcelLockerDraft : MediativeDeliveryPointDraft
     public MdpStatus Status => MdpStatus.Inactive;
     public MdpTypes MdpType => MdpTypes.ParcelLocker;
 
-    public override MediativeDeliveryPoint Activate()
+    public override MediativeDeliveryPointAccessor Activate()
     {
-        return new ParcelLocker(this);
+        return new MediativeDeliveryPointAccessor(new ParcelLocker(this), Id);
     }
 }

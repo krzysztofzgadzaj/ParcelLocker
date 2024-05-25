@@ -1,6 +1,6 @@
 ﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Exceptions;
 
-namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors;
+namespace OutPost.Modules.Logistics.Domain.Shared;
 
 public class ParcelParameters
 {

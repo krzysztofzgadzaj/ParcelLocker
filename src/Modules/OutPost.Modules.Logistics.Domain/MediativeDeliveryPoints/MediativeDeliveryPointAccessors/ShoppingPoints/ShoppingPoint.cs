@@ -1,5 +1,6 @@
 ﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Exceptions;
 using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared;
+using OutPost.Modules.Logistics.Domain.Shared;
 using OutPost.Shared.Abstractions.Localization;
 
 namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.ShoppingPoints;
@@ -42,7 +43,7 @@ public class ShoppingPoint : MediativeDeliveryPoint
         throw new NotImplementedException();
     }
 
-    public override void StoreParcel(Parcel parcel)
+    public override void StoreParcel(Guid parcelId)
     {
         throw new NotImplementedException();
     }
