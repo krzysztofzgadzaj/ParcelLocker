@@ -11,4 +11,8 @@
       <ProjectReference Include="..\OutPost.Modules.Logistics.Application\OutPost.Modules.Logistics.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Persistence\" />
+    </ItemGroup>
+
 </Project>

@@ -28,7 +28,7 @@ public class ParcelLocker : MediativeDeliveryPoint
         }
 
         MdpCompany = parcelLockerDraft.MdpCompany;
-        Slots = parcelLockerDraft.Slots.Select(x => new ParcelLockerSlot(x));
+        Slots = parcelLockerDraft.Slots.Select(x => new ParcelLockerSlot(x)).ToList();
         SerialCode = parcelLockerDraft.SerialCode;
         Address = parcelLockerDraft.Address;
         Id = Guid.NewGuid();
@@ -37,8 +37,8 @@ public class ParcelLocker : MediativeDeliveryPoint
     public MdpCompany MdpCompany { get; init; }
     public Address Address { get; init; }
     public ParcelLockerSerialCode SerialCode { get; init; }
-    public IEnumerable<ParcelLockerSlot> Slots { get; init; }
-    public MdpStatus Status { get; private set; }
+    public List<ParcelLockerSlot> Slots { get; init; }
+    public MdpStatus Status => MdpStatus.Active;
     public MdpTypes MdpType => MdpTypes.ParcelLocker;
 
     public override void Deactivate()
@@ -48,7 +48,7 @@ public class ParcelLocker : MediativeDeliveryPoint
             throw new CannotDeactivateMdpWithParcelsOrReservationsException($"Parcel Locker with Id: {Id} cannot be deactivated");
         }
 
-        Status = MdpStatus.Inactive;
+        // TODO - Create MdpDraft
     }
 
     public override bool CanStoreParcel(ParcelParameters parcelParameters)

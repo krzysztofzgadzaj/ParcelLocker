@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Units\" />
+      <Folder Include="Integration\" />
     </ItemGroup>
 
 </Project>

@@ -4,22 +4,27 @@ namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeli
 
 public class ParcelAccessRegistry
 {
-    private List<CodeAccessRegistryEntry> CodeAccessRegistryEntries { get; init; } = new();
+    private readonly List<CodeAccessRegistryEntry> _codeAccessRegistryEntries = new();
 
     public void CreateCodeAccess(string phoneNumber, Deadline deadline, Guid parcelId)
     {
-        CodeAccessRegistryEntries.Add(new CodeAccessRegistryEntry(parcelId, phoneNumber, deadline));
+        _codeAccessRegistryEntries.Add(new CodeAccessRegistryEntry(parcelId, phoneNumber, deadline));
     }
+    
+    public List<CodeAccessRegistryEntry> CodeAccessRegistryEntries => _codeAccessRegistryEntries;
 
-    public Guid? VerifyCodeAccess(string phoneNumber, int code)
+    public Guid? InvalidateCode(string phoneNumber, int code)
     {
-        var dupa = CodeAccessRegistryEntries.FirstOrDefault(x => x.ValidateCode(phoneNumber, code));
+        var dupa = _codeAccessRegistryEntries.FirstOrDefault(x => x.ValidateCode(phoneNumber, code));
 
         if (dupa is null)
         {
             return null;
         }
 
-        return dupa.ParcelId;
+        var dupaId = dupa.ParcelId;
+        _codeAccessRegistryEntries.Remove(dupa);
+
+        return dupaId;
     }
 }

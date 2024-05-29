@@ -23,7 +23,7 @@ public class MediativeDeliveryPointAccessor : AggregateRoot
 
     public void StoreParcelWithPhoneNumberSafeCodeAccess(int code, string phoneNumber)
     {
-        var parcelId = ParcelAccessRegistry.VerifyCodeAccess(phoneNumber, code);
+        var parcelId = ParcelAccessRegistry.InvalidateCode(phoneNumber, code);
 
         if (parcelId is null)
         {
