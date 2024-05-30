@@ -1,22 +1,21 @@
 ﻿using OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Exceptions;
 using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointDrafts.Repositories;
 using OutPost.Shared.Abstractions.Commands;
 
 namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Commands.ActivateMdp;
 
 public class ActivateMdpCommandHandler : ICommandHandler<ActivateMdpCommand>
 {
-    private readonly IMdpDraftRepository _mdpDraftRepository;
+    private readonly IMdpRepository _mdpRepository;
 
-    public ActivateMdpCommandHandler(IMdpDraftRepository mdpDraftRepository)
+    public ActivateMdpCommandHandler(IMdpRepository mdpRepository)
     {
-        _mdpDraftRepository = mdpDraftRepository;
+        _mdpRepository = mdpRepository;
     }
 
     public async Task SendAsync(ActivateMdpCommand command)
     {
-        var mediativeDeliveryPoint = await _mdpDraftRepository.GetById(command.Id);
+        var mediativeDeliveryPoint = await _mdpRepository.GetMdpDraft(command.Id);
 
         if (mediativeDeliveryPoint is null)
         {
@@ -24,5 +23,6 @@ public class ActivateMdpCommandHandler : ICommandHandler<ActivateMdpCommand>
         }
         
         var mdp = mediativeDeliveryPoint.Activate();
+        await _mdpRepository.ReplaceDraftWithActiveMdp(mdp);
     }
 }

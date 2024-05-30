@@ -34,7 +34,7 @@ public class CreateShoppingPointCommandHandler : ICommandHandler<CreateShoppingP
         }
         
         var parcelLocker = new ShoppingPoint(mdpCompany, address, naturalIdentifier, storage);
-        await _mdpRepository.Create(parcelLocker);
+        await _mdpRepository.CreateMdpDraft(parcelLocker);
         
         // TODO - Publish event, domain or integration using UnitOfWork
     }

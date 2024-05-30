@@ -39,9 +39,9 @@ public class ModuleClient : IModuleClient
         var arguments = MapMessage(args, registryEntry.DestinationType);
         var response = await registryEntry.Action(arguments);
 
-        return JsonSerializer.Deserialize<T>(_textSerializer.Serialize(response));
+        return JsonSerializer.Deserialize<T>(_textSerializer.SerializeToByteArray(response));
     }
     
     private object MapMessage(object message, Type targetType)
-        => _textSerializer.Deserialize(_textSerializer.Serialize(message), targetType);
+        => _textSerializer.Deserialize(_textSerializer.SerializeToByteArray(message), targetType);
 }

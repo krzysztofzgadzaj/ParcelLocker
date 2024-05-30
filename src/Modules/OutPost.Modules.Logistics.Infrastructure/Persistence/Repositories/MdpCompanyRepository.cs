@@ -1,7 +1,7 @@
 ﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared;
 using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared.Repositories;
 
-namespace OutPost.Modules.Logistics.Infrastructure.Repositories;
+namespace OutPost.Modules.Logistics.Infrastructure.Persistence.Repositories;
 
 public class MdpCompanyRepository : IMdpCompanyRepository
 {

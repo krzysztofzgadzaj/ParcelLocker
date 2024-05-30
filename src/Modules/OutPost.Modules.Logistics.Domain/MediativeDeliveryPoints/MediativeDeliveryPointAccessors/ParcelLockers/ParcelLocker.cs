@@ -39,7 +39,7 @@ public class ParcelLocker : MediativeDeliveryPoint
     public ParcelLockerSerialCode SerialCode { get; init; }
     public List<ParcelLockerSlot> Slots { get; init; }
     public MdpStatus Status => MdpStatus.Active;
-    public MdpTypes MdpType => MdpTypes.ParcelLocker;
+    public override MdpTypes MdpType => MdpTypes.ParcelLocker;
 
     public override void Deactivate()
     {

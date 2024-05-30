@@ -11,9 +11,15 @@ internal class TextSerializer : ITextSerializer
         PropertyNameCaseInsensitive = true
     };
 
-    public byte[] Serialize(object objectToSerialize)
-        => Encoding.UTF8.GetBytes(JsonSerializer.Serialize(objectToSerialize, SerializerOptions));
+    public string Serialize(object objectToSerialize)
+        => JsonSerializer.Serialize(objectToSerialize, SerializerOptions);
     
+    public byte[] SerializeToByteArray(object objectToSerialize)
+        => Encoding.UTF8.GetBytes(Serialize(objectToSerialize));
+
+    public T Deserialize<T>(string stringToDeserialize) 
+        => JsonSerializer.Deserialize<T>(stringToDeserialize);
+
     public object Deserialize(byte[] stringToDeserialize, Type targetType)
         => JsonSerializer.Deserialize(Encoding.UTF8.GetString(stringToDeserialize), targetType, SerializerOptions);
 }

@@ -1,7 +1,6 @@
 ﻿using OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.DTO;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.ParcelLockers;
+using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors.Repositories;
 using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointDrafts.ParcelLockers;
-using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointDrafts.Repositories;
 using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared;
 using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared.Repositories;
 using OutPost.Shared.Abstractions.Commands;
@@ -11,13 +10,13 @@ namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Commands
 
 public class CreateDraftParcelLockerCommandHandler : ICommandHandler<CreateDraftParcelLockerCommand>
 {
-    private readonly IMdpDraftRepository _mdpDraftRepository;
+    private readonly IMdpRepository _mdpRepository;
     private readonly ILocalizationService _localizationService;
     private readonly IMdpCompanyRepository _mdpCompanyRepository;
 
-    public CreateDraftParcelLockerCommandHandler(IMdpDraftRepository mdpDraftRepository, ILocalizationService localizationService, IMdpCompanyRepository mdpCompanyRepository)
+    public CreateDraftParcelLockerCommandHandler(IMdpRepository mdpRepository, ILocalizationService localizationService, IMdpCompanyRepository mdpCompanyRepository)
     {
-        _mdpDraftRepository = mdpDraftRepository;
+        _mdpRepository = mdpRepository;
         _localizationService = localizationService;
         _mdpCompanyRepository = mdpCompanyRepository;
     }
@@ -35,7 +34,7 @@ public class CreateDraftParcelLockerCommandHandler : ICommandHandler<CreateDraft
         }
         
         var parcelLocker = new ParcelLockerDraft(slots, serialCode, address, mdpCompany);
-        await _mdpDraftRepository.Create(parcelLocker);
+        await _mdpRepository.CreateMdpDraft(parcelLocker);
         
         // TODO - Publish event, domain or integration using UnitOfWork
     }

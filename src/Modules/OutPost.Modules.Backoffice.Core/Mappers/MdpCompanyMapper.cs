@@ -12,6 +12,7 @@ public static class MdpCompanyMapper
     public static MdpCompanyDto MapToDto(this MdpCompany mdpCompany)
         => new()
         {
+            Id = mdpCompany.Id,
             Name = mdpCompany.Name, 
             MarkupPercentage = mdpCompany.MarkupPercentage,
             MdpTypes = mdpCompany.MdpTypes

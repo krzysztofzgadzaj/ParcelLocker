@@ -2,6 +2,8 @@
 
 public interface ITextSerializer
 {
-    byte[] Serialize(object objectToSerialize);
+    string Serialize(object objectToSerialize);
+    byte[] SerializeToByteArray(object objectToSerialize);
+    public T Deserialize<T>(string stringToDeserialize);
     public object Deserialize(byte[] stringToDeserialize, Type targetType);
 }

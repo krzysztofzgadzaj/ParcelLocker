@@ -1,11 +1,12 @@
-﻿using OutPost.Modules.Logistics.Domain.Shared;
+﻿using OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.Shared;
+using OutPost.Modules.Logistics.Domain.Shared;
 
 namespace OutPost.Modules.Logistics.Domain.MediativeDeliveryPoints.MediativeDeliveryPointAccessors;
 
 public abstract class MediativeDeliveryPoint : IMdpAvaiability, IMdpStorageAvailability
 {
-    public  Guid Id { get; init; }
-    
+    public Guid Id { get; init; }
+    public abstract MdpTypes MdpType { get; }
     public abstract void Deactivate();
     public abstract bool CanStoreParcel(ParcelParameters parcelParameters);
     public abstract void ReserveSlotForParcel(Parcel parcel);
