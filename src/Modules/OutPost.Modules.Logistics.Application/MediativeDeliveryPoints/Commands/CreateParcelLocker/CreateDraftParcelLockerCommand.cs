@@ -5,7 +5,7 @@ namespace OutPost.Modules.Logistics.Application.MediativeDeliveryPoints.Commands
 
 public class CreateDraftParcelLockerCommand : ICommand
 {
-    public IEnumerable<ParcelLockerSlotDto> Slots { get; set; }
+    public List<ParcelLockerSlotDto> Slots { get; set; } = new();
     public string SerialCode { get; set; }
     public Guid MdpCompanyId { get; set; }
     public AddressDto Address { get; set; }

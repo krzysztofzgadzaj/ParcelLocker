@@ -32,3 +32,5 @@ foreach (var module in modules)
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

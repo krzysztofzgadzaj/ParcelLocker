@@ -14,7 +14,7 @@ internal class MediativeDeliveryPointCompaniesController : BaseController
     }
     
     [HttpGet]
-    public async Task<IActionResult> CreateParcelLocker()
+    public async Task<IActionResult> GetMdpCompanies()
     {
         var mdpCompanies = await _queryDispatcher.QueryAsync(new GetMdpCompaniesQuery());
         return Ok(mdpCompanies);
