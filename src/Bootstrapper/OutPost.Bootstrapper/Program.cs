@@ -33,4 +33,7 @@ app.MapControllers();
 
 app.Run();
 
-public partial class Program { }
+namespace OutPost.Bootstrapper
+{
+    public partial class Program { }
+}

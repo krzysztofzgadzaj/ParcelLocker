@@ -10,8 +10,4 @@
       <ProjectReference Include="..\..\Shared\OutPost.Shared.Abstractions\OutPost.Shared.Abstractions.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Policies\" />
-    </ItemGroup>
-
 </Project>

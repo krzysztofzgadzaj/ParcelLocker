@@ -10,13 +10,13 @@ public abstract class AggregateRoot<TKey>
 
     public IEnumerable<IDomainEvent> GetEvents => _domainEvents;
     
-    public void AddEvent(IDomainEvent @event)
+    protected void AddEvent(IDomainEvent @event)
     {
         _domainEvents.Add(@event);
         IncrementVersion();
     }
 
-    public void IncrementVersion()
+    protected void IncrementVersion()
     {
         if (_versionUpdated)
         {

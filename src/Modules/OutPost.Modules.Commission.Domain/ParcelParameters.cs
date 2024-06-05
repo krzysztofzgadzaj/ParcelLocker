@@ -2,21 +2,21 @@
 
 public class ParcelParameters
 {
-    public ParcelParameters(double lengthInCm, double widthInCm, double heightInCm, double weightInKg)
+    public ParcelParameters(double heightInCm, double widthInCm, double lengthInCm, double weightInGrams)
     {
-        if (lengthInCm <= 0 || lengthInCm > 100 || heightInCm <= 0 || heightInCm > 100 || widthInCm < 0 || widthInCm > 100 || weightInKg > 100)
+        if (lengthInCm <= 0 || widthInCm <= 0 || heightInCm <= 0 || weightInGrams <= 0)
         {
-            throw new ArgumentException();
+            throw new ApplicationException("One of dimensions is incorrect");
         }
         
-        LengthInCm = lengthInCm;
-        WidthInCm = widthInCm;
         HeightInCm = heightInCm;
-        WeightInKg = weightInKg;
+        WidthInCm = widthInCm;
+        LengthInCm = lengthInCm;
+        WeightInGrams = weightInGrams;
     }
-    
-    public double LengthInCm { get; init; } 
-    public double WidthInCm { get; init; }
-    public double HeightInCm { get; init; }
-    public double WeightInKg { get; init; }
+
+    public double LengthInCm { get; }
+    public double WidthInCm { get; }
+    public double HeightInCm { get; }
+    public double WeightInGrams { get; }
 }
