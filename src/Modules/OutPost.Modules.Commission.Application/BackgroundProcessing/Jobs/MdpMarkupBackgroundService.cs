@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
 using OutPost.Modules.Commission.Domain.Repositories;
 
-namespace OutPost.Modules.Commission.Application.BackgroundProcessing;
+namespace OutPost.Modules.Commission.Application.BackgroundProcessing.Jobs;
 
 public class MdpMarkupBackgroundService : IHostedService
 {

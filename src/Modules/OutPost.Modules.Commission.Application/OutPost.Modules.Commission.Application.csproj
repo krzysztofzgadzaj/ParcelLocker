@@ -10,4 +10,8 @@
       <ProjectReference Include="..\OutPost.Modules.Commission.Domain\OutPost.Modules.Commission.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="BackgroundProcessing\Sagas\" />
+    </ItemGroup>
+
 </Project>

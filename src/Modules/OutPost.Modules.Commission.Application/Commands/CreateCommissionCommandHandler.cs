@@ -1,4 +1,6 @@
-﻿using OutPost.Modules.Commission.Application.Dtos;
+﻿using OutPost.Modules.Commission.Application.BackgroundProcessing;
+using OutPost.Modules.Commission.Application.Dtos;
+using OutPost.Modules.Commission.Application.Events;
 using OutPost.Modules.Commission.Application.Exceptions;
 using OutPost.Modules.Commission.Application.Repositories;
 using OutPost.Modules.Commission.Domain;
@@ -15,14 +17,20 @@ public class CreateCommissionCommandHandler : ICommandHandler<CreateCommissionCo
     private readonly ICommissionRepository _commissionRepository;
     private readonly IOutpostConfigurationRepository _outpostConfigurationRepository;
     private readonly IMdpRepository _mdpRepository;
+    private readonly IEventRepository _eventRepository;
+    private readonly IBackgroundValidator _backgroundValidator;
 
     public CreateCommissionCommandHandler(ICommissionRepository commissionRepository, 
         IOutpostConfigurationRepository outpostConfigurationRepository, 
-        IMdpRepository mdpRepository)
+        IMdpRepository mdpRepository, 
+        IEventRepository eventRepository, 
+        IBackgroundValidator backgroundValidator)
     {
         _commissionRepository = commissionRepository;
         _outpostConfigurationRepository = outpostConfigurationRepository;
         _mdpRepository = mdpRepository;
+        _eventRepository = eventRepository;
+        _backgroundValidator = backgroundValidator;
     }
 
     public async Task SendAsync(CreateCommissionCommand command)
@@ -45,6 +53,8 @@ public class CreateCommissionCommandHandler : ICommandHandler<CreateCommissionCo
 
         var commission = Domain.Commission.CreateCommission(parcelParameters, parcelStartingPoint, parcelDeliveryPoint, outpostMarkup.Value);
         await _commissionRepository.CreateAsync(commission);
+        await _backgroundValidator.Validate(commission);
+        await _eventRepository.StoreAsync(EventMapper.Map(commission.GetEvents));
     }
 
     private async Task<DeliveryMethod> CreateDeliveryMethod(DeliveryMethodDto deliveryMethodDto)

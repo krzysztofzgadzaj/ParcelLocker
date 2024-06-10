@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using OutPost.Modules.Commission.Application.Clients.BackOfficeClient;
 using OutPost.Modules.Commission.Application.Repositories;
 
-namespace OutPost.Modules.Commission.Application.BackgroundProcessing;
+namespace OutPost.Modules.Commission.Application.BackgroundProcessing.Jobs;
 
 public class OutpostConfigurationBackgroundService : IHostedService
 {
