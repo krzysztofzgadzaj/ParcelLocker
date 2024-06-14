@@ -21,7 +21,6 @@ public class CreateCommissionTests
     private readonly Mock<IOutpostConfigurationRepository> _outpostConfigurationRepositoryMock;
     private readonly Mock<IMdpRepository> _mdpRepositoryMock;
     private readonly Mock<IEventRepository> _eventRepositoryMock;
-    private readonly Mock<IBackgroundValidator> _backgrounValidatorMock;
     private readonly CreateCommissionCommandHandler _handler;
 
     public CreateCommissionTests()
@@ -30,13 +29,11 @@ public class CreateCommissionTests
         _outpostConfigurationRepositoryMock = new Mock<IOutpostConfigurationRepository>();
         _mdpRepositoryMock = new Mock<IMdpRepository>();
         _eventRepositoryMock = new Mock<IEventRepository>();
-        _backgrounValidatorMock = new Mock<IBackgroundValidator>();
         _handler = new CreateCommissionCommandHandler(
             _commissionRepositoryMock.Object,
             _outpostConfigurationRepositoryMock.Object,
             _mdpRepositoryMock.Object,
-            _eventRepositoryMock.Object,
-            _backgrounValidatorMock.Object);
+            _eventRepositoryMock.Object);
         
         _outpostConfigurationRepositoryMock.Setup(x
                 => x.GetOutpostMarkup())
